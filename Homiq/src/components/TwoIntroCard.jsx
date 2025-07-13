@@ -1,32 +1,53 @@
 import SaleCard from '../assets/SaleCard.jpg';
 import RentCard from '../assets/RentCard.jpg';
 
-const TwoIntroCard = () => {
+const TwoIntroCard = ({ setType }) => {
   return (
-    <>
-      <div className='"w-full max-w-sm h-[480px] bg-[#c5ecc9] rounded-xl p-6 flex flex-col items-center ">'>
+    <div className='flex gap-8 justify-center'>
+      <div className='w-full max-w-sm h-[480px] bg-white rounded-xl p-6 flex flex-col items-center border-4 border-[#4CAF50] shadow-sm hover:shadow-md transition-shadow'>
         <h2 className='font-bold text-[#1e3a1e] text-4xl text-center mb-2'>
           Find Property for Sale
         </h2>
-        <p className='text-black text-lg text-center'>
+        <p className='text-gray-600 text-lg text-center mb-6'>
           Search for your dream property from our sale listings
         </p>
-        <img src={SaleCard} alt='Classic House' className=' rounded-lg mt-4' />
+        <div className='w-[300px] h-[250px] overflow-hidden rounded-lg'>
+          <img
+            src={SaleCard}
+            alt='House for sale'
+            className='w-full h-full object-cover select-none'
+          />
+        </div>
+        <button
+          className='mt-6 px-8 py-3 bg-[#4CAF50] text-white rounded-full font-medium hover:bg-[#3e8e41] transition-colors cursor-pointer'
+          onClick={() => setType('sale')}
+        >
+          Sale
+        </button>
       </div>
-      <div className='"w-full max-w-sm h-[480px] bg-[#c5ecc9] rounded-xl p-6 flex flex-col items-center ">'>
+
+      <div className='w-full max-w-sm h-[480px] bg-white rounded-xl p-6 flex flex-col items-center border-4 border-[#4CAF50] shadow-sm hover:shadow-md transition-shadow'>
         <h2 className='font-bold text-[#1e3a1e] text-4xl text-center mb-2'>
           Find Property for Rent
         </h2>
-        <p className='text-black text-lg text-center'>
+        <p className='text-gray-600 text-lg text-center mb-6'>
           Discover rental properties that suit your needs
         </p>
-        <img
-          src={RentCard}
-          alt='Classic House'
-          className=' w-[300px] h-[250px] rounded-lg mt-4'
-        />
+        <div className='w-[300px] h-[250px] overflow-hidden rounded-lg'>
+          <img
+            src={RentCard}
+            alt='House for rent'
+            className='w-full h-full object-cover select-none'
+          />
+        </div>
+        <button
+          className='mt-6 px-8 py-3 bg-[#4CAF50] text-white rounded-full font-medium hover:bg-[#3e8e41] transition-colors cursor-pointer'
+          onClick={() => setType('rent')}
+        >
+          Rent
+        </button>
       </div>
-    </>
+    </div>
   );
 };
 
