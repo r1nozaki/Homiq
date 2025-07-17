@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 
 import { FaHeart, FaRegHeart, FaBed, FaExpand, FaPaintRoller } from 'react-icons/fa6';
 import { MdOutlineStairs } from 'react-icons/md';
@@ -16,6 +17,7 @@ const SaleItem = ({
   totalFloor,
   images,
   isFavourite,
+  type,
 }) => {
   const [favourite, setFavourite] = useState(isFavourite);
 
@@ -24,7 +26,7 @@ const SaleItem = ({
   };
 
   return (
-    <div className='w-87 h-165 border border-[#4CAF50] flex flex-col rounded-lg p-2'>
+    <div className='w-87 max-h-165 border border-[#4CAF50] flex flex-col rounded-lg p-2'>
       <div className='relative'>
         {favourite ? (
           <FaHeart
@@ -74,6 +76,12 @@ const SaleItem = ({
             </span>
           </div>
         </div>
+        <Link
+          to={`/${type}/${id}`}
+          className='mx-auto my-10 block bg-[#4CAF50] text-white rounded-full font-medium hover:bg-[#3e8e41] cursor-pointer w-1/2 h-10 transition duration-300 ease-in-out transform hover:scale-105 text-center pt-2'
+        >
+          Show More
+        </Link>
       </div>
     </div>
   );

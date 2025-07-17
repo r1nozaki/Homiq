@@ -1,7 +1,7 @@
 import SaleCard from '../assets/SaleCard.jpg';
 import RentCard from '../assets/RentCard.jpg';
 
-const TwoIntroCard = ({ setType }) => {
+const TwoIntroCard = ({ handleSetType }) => {
   return (
     <div className='flex gap-8 justify-center'>
       <div className='w-full max-w-sm h-[480px] bg-white rounded-xl p-6 flex flex-col items-center border-4 border-[#4CAF50] shadow-sm hover:shadow-md transition-shadow'>
@@ -20,7 +20,7 @@ const TwoIntroCard = ({ setType }) => {
         </div>
         <button
           className='mt-6 px-8 py-3 bg-[#4CAF50] text-white rounded-full font-medium hover:bg-[#3e8e41] transition-colors cursor-pointer'
-          onClick={() => setType('sale')}
+          onClick={() => handleSetType('sale')}
         >
           Sale
         </button>
@@ -42,7 +42,7 @@ const TwoIntroCard = ({ setType }) => {
         </div>
         <button
           className='mt-6 px-8 py-3 bg-[#4CAF50] text-white rounded-full font-medium hover:bg-[#3e8e41] transition-colors cursor-pointer'
-          onClick={() => setType('rent')}
+          onClick={() => handleSetType('rent')}
         >
           Rent
         </button>

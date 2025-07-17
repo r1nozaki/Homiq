@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 
 import { FaHeart, FaRegHeart, FaBed, FaExpand, FaPaintRoller } from 'react-icons/fa6';
 import { MdOutlineStairs } from 'react-icons/md';
 
 const RentItem = ({
+  id,
   price,
   address,
   description,
@@ -15,6 +17,7 @@ const RentItem = ({
   totalFloor,
   images,
   isFavourite,
+  type,
 }) => {
   const [favourite, setFavourite] = useState(isFavourite);
 
@@ -43,7 +46,6 @@ const RentItem = ({
       <div>
         <div className='flex gap-2 items-center mt-3'>
           <span className='text-xl text-black font-bold'>$ {price}</span>
-          <span className='text-xs text-gray-400'>{pricePerSquare} $/m²</span>
         </div>
         <div className='mt-1'>
           <span className='text-lg font-medium'>{address}</span>
@@ -73,6 +75,12 @@ const RentItem = ({
             </span>
           </div>
         </div>
+        <Link
+          to={`/${type}/${id}`}
+          className='mx-auto my-10 block bg-[#4CAF50] text-white rounded-full font-medium hover:bg-[#3e8e41] cursor-pointer w-1/2 h-10 transition duration-300 ease-in-out transform hover:scale-105 text-center pt-2'
+        >
+          Show More
+        </Link>
       </div>
     </div>
   );
