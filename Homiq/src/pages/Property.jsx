@@ -1,4 +1,4 @@
-import RealEstateAssortiment from '../components/RealEstateAssortiment';
+import RealEstateAssortiment from '../components/Property/RealEstateAssortiment';
 const Property = () => {
   return <RealEstateAssortiment />;
 };

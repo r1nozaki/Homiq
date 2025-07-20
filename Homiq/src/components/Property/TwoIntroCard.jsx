@@ -1,5 +1,5 @@
-import SaleCard from '../assets/SaleCard.jpg';
-import RentCard from '../assets/RentCard.jpg';
+import SaleCard from '../../assets/SaleCard.jpg';
+import RentCard from '../../assets/RentCard.jpg';
 
 const TwoIntroCard = ({ handleSetType }) => {
   return (

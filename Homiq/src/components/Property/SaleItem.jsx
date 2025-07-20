@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { Link } from 'react-router';
+import { useState, useEffect, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import { toggleFavorite, isInFavorites } from '../../utils/estateFavoriteUtils';
 
 import { FaHeart, FaRegHeart, FaBed, FaExpand, FaPaintRoller } from 'react-icons/fa6';
 import { MdOutlineStairs } from 'react-icons/md';
 
-const RentItem = ({
+const SaleItem = ({
   id,
   price,
   address,
@@ -16,17 +17,65 @@ const RentItem = ({
   currentFloor,
   totalFloor,
   images,
-  isFavourite,
   type,
+  onToggleFavorite,
+  showNotification,
 }) => {
-  const [favourite, setFavourite] = useState(isFavourite);
+  const [favourite, setFavourite] = useState(false);
+
+  const estate = useMemo(
+    () => ({
+      id,
+      price,
+      address,
+      description,
+      pricePerSquare,
+      countRooms,
+      isRenovation,
+      area,
+      currentFloor,
+      totalFloor,
+      images,
+      type,
+      onToggleFavorite,
+      showNotification,
+    }),
+    [
+      id,
+      price,
+      address,
+      description,
+      pricePerSquare,
+      countRooms,
+      isRenovation,
+      area,
+      currentFloor,
+      totalFloor,
+      images,
+      type,
+      onToggleFavorite,
+      showNotification,
+    ]
+  );
+
+  useEffect(() => {
+    setFavourite(isInFavorites(id, 'sale'));
+  }, [id]);
 
   const handleFavourite = () => {
-    setFavourite(!favourite);
+    const newFav = toggleFavorite(estate, type);
+    setFavourite(newFav);
+    if (onToggleFavorite) {
+      onToggleFavorite();
+    }
+
+    if (showNotification && newFav) {
+      showNotification();
+    }
   };
 
   return (
-    <div className='w-87 h-165 border border-[#4CAF50] flex flex-col rounded-lg p-2'>
+    <div className='w-87 max-h-165 border border-[#4CAF50] flex flex-col rounded-lg p-2'>
       <div className='relative'>
         {favourite ? (
           <FaHeart
@@ -46,6 +95,7 @@ const RentItem = ({
       <div>
         <div className='flex gap-2 items-center mt-3'>
           <span className='text-xl text-black font-bold'>$ {price}</span>
+          <span className='text-xs text-gray-400'>{pricePerSquare} $/m²</span>
         </div>
         <div className='mt-1'>
           <span className='text-lg font-medium'>{address}</span>
@@ -86,4 +136,4 @@ const RentItem = ({
   );
 };
 
-export default RentItem;
+export default SaleItem;

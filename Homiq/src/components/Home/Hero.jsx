@@ -1,4 +1,4 @@
-import { bgHouse } from '../assets/backgrounds/bg';
+import { bgHouse } from '../../assets/backgrounds/bg';
 
 const Hero = () => {
   return (

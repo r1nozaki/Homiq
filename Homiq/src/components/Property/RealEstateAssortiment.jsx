@@ -3,12 +3,13 @@ import { HashLoader } from 'react-spinners';
 
 import TwoIntroCard from './TwoIntroCard';
 import Filters from './Filters';
-import Header from '../components/Header';
+import Header from '../Header';
 import SaleLayout from './SaleLayout';
 import RentLayout from './RentLayout';
-import RentData from '../data/RentRealEstateData';
-import SaleData from '../data/SaleRealEstateData';
-import applyFilters from '../utils/filtersUtils';
+import RentData from '../../data/RentRealEstateData';
+import SaleData from '../../data/SaleRealEstateData';
+import applyFilters from '../../utils/filtersUtils';
+import Notification from '../Notification';
 
 const RealEstateAssortiment = () => {
   const emptyFilters = {
@@ -20,6 +21,7 @@ const RealEstateAssortiment = () => {
   };
 
   const [type, setType] = useState(null);
+  const [notification, setNotification] = useState(false);
   const [loading, setLoading] = useState(false);
   const [draftFilters, setDraftFilters] = useState(emptyFilters);
   const [filters, setFilters] = useState(emptyFilters);
@@ -40,6 +42,11 @@ const RealEstateAssortiment = () => {
     }
   }, [type]);
 
+  const showNotification = () => {
+    setNotification(true);
+    setTimeout(() => setNotification(false), 2000);
+  };
+
   const filteredData = useMemo(() => {
     const data = type === 'rent' ? RentData : SaleData;
     return applyFilters(data, filters);
@@ -56,9 +63,9 @@ const RealEstateAssortiment = () => {
       Not found matches
     </div>
   ) : type === 'sale' ? (
-    <SaleLayout data={filteredData} type='sale' />
+    <SaleLayout data={filteredData} type='sale' showNotification={showNotification} />
   ) : (
-    <RentLayout data={filteredData} type='rent' />
+    <RentLayout data={filteredData} type='rent' showNotification={showNotification} />
   );
 
   const handleSetType = selectedType => {
@@ -89,6 +96,9 @@ const RealEstateAssortiment = () => {
         />
         {showContent}
       </div>
+      {notification && (
+        <Notification notification={notification} text='Added to favorites!' />
+      )}
     </>
   );
 };

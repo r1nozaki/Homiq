@@ -1,7 +1,8 @@
-import { useParams, Link } from 'react-router';
-import { useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { toggleFavorite, isInFavorites } from '../../utils/estateFavoriteUtils';
 
-import ImageSlider from './ImageSlider';
+import ImageSlider from '../ImageSlider';
 import {
   FaShareAlt,
   FaHeart,
@@ -15,12 +16,12 @@ import { PiWall } from 'react-icons/pi';
 import { MdOutlineStairs } from 'react-icons/md';
 import { TbAirConditioning } from 'react-icons/tb';
 import { FaArrowLeftLong } from 'react-icons/fa6';
-import Header from './Header';
-import ErrorMessage from './ErrorMessage';
-import Notification from './Notification';
-import SaleData from '../data/SaleRealEstateData';
-import RentData from '../data/RentRealEstateData';
-import bankid from '../assets/bankid.png';
+import Header from '../Header';
+import ErrorMessage from '../ErrorMessage';
+import Notification from '../Notification';
+import SaleData from '../../data/SaleRealEstateData';
+import RentData from '../../data/RentRealEstateData';
+import bankid from '../../assets/bankid.png';
 
 const EstateDetails = () => {
   const { id, type } = useParams();
@@ -47,27 +48,37 @@ const EstateDetails = () => {
     totalFloor,
     images,
     pricePerSquare,
-    isFavourite,
     Realtor,
     heatingSystem,
     yearofConstruction,
     wallType,
   } = estate;
 
-  const [favourite, setFavourite] = useState(isFavourite);
-  const [notification, setNotification] = useState(false);
+  const [favourite, setFavourite] = useState(false);
+  const [linkNotification, setLinkNotification] = useState(false);
+  const [favNotification, setFavNotification] = useState(false);
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    setFavourite(isInFavorites(id, type));
+  }, [id, type]);
+
   const handleFavourite = () => {
-    setFavourite(!favourite);
+    const newFav = toggleFavorite(estate, type);
+    setFavourite(newFav);
+    if (newFav) {
+      setFavNotification(true);
+      setTimeout(() => setFavNotification(false), 1000);
+    }
   };
 
   const handleCopy = () => {
     navigator.clipboard
       .writeText(window.location.href)
       .then(() => {
-        setNotification(true);
+        setLinkNotification(true);
         setTimeout(() => {
-          setNotification(false);
+          setLinkNotification(false);
         }, 2000);
       })
       .catch(() => {
@@ -121,7 +132,7 @@ const EstateDetails = () => {
 
           <Link
             to='/property'
-            className='flex items-center gap-3 font-medium text-lg mt-10'
+            className='flex items-center gap-3 font-medium text-lg mt-10 hover:underline'
           >
             <FaArrowLeftLong size={24} /> Back to list
           </Link>
@@ -178,8 +189,11 @@ const EstateDetails = () => {
             <span className='text-white text-lg font-semibold'>{Realtor.phone}</span>
           </a>
         </div>
-        {notification && (
-          <Notification notification={notification} text={'Link copied!'} />
+        {linkNotification && (
+          <Notification notification={linkNotification} text={'Link copied!'} />
+        )}
+        {favNotification && (
+          <Notification notification={favNotification} text={'Added to favorites!'} />
         )}
         {error && <ErrorMessage error={error} text={'Link failed to copy!'} />}
       </section>

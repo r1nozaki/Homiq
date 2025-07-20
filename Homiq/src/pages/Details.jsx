@@ -1,4 +1,4 @@
-import EstateDetails from '../components/EstateDetails';
+import EstateDetails from '../components/Property/EstateDetails';
 
 const Details = () => {
   return <EstateDetails />;

@@ -1,4 +1,6 @@
-import aboutUs from '../assets/aboutUs.png';
+import { Link } from 'react-router-dom';
+
+import aboutUs from '../../assets/aboutUs.png';
 import { FaCheck, FaStar } from 'react-icons/fa';
 
 const AboutHomiq = () => {
@@ -45,9 +47,12 @@ const AboutHomiq = () => {
           knowledge about buyer interests, our neighborhood and the market than any other
           brand because we live locally and work for local people.
         </p>
-        <button className='border-none w-46.5 h-15 bg-green-400 text-white text-base mt-12 cursor-pointer transition duration-300 ease-in-out transform hover:scale-105 hover:bg-green-500'>
+        <Link
+          to='/about'
+          className='border-none w-46.5 h-15 bg-green-400 text-white block text-center pt-4 text-lg mt-12 cursor-pointer transition duration-300 ease-in-out transform hover:scale-105 hover:bg-green-500 '
+        >
           Learn More
-        </button>
+        </Link>
       </div>
     </div>
   );

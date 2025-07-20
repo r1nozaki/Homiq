@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { FaTelegram, FaInstagramSquare } from 'react-icons/fa';
 import { FaSquareXTwitter } from 'react-icons/fa6';
 
@@ -39,9 +41,9 @@ const Footer = () => {
             <span className='text-[#0B2E29] text-xl font-medium'>Service</span>
             <ul className='mt-4'>
               <li className='text-gray-500 flex flex-col gap-4 '>
-                <a href='#' className='hover:underline'>
+                <Link to='/about' className='hover:underline'>
                   About us
-                </a>
+                </Link>
                 <a href='#' className='hover:underline'>
                   Careers
                 </a>

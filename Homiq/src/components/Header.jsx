@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router-dom';
 import { FaHeart, FaGear } from 'react-icons/fa6';
 
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
         {[
           { to: '/home', label: 'Home' },
           { to: '/property', label: 'Property' },
-          { to: '/aboutus', label: 'About us' },
+          { to: '/about', label: 'About us' },
           { to: '/contact', label: 'Contact' },
         ].map(({ to, label }) => (
           <NavLink key={to} to={to}>
@@ -35,9 +35,9 @@ const Header = () => {
       </nav>
 
       <div className='flex items-center gap-6'>
-        <a className='text-black cursor-pointer hover:text-green-400'>
+        <Link to='/favorite' className='text-black cursor-pointer hover:text-green-400'>
           <FaHeart className='' size={22} />
-        </a>
+        </Link>
         <a className='text-black cursor-pointer hover:text-green-400'>
           <FaGear size={22} />
         </a>

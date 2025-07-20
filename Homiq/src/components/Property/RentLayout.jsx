@@ -1,5 +1,5 @@
 import RentItem from './RentItem';
-const RentLayout = ({ data, type }) => {
+const RentLayout = ({ data, type, showNotification }) => {
   return (
     <div className='w-3/4 grid grid-cols-3 gap-3 mt-4 mb-4'>
       {data.map(item => (
@@ -18,6 +18,7 @@ const RentLayout = ({ data, type }) => {
           images={item.images}
           isFavourite={item.isFavourite}
           type={type}
+          showNotification={showNotification}
         />
       ))}
     </div>

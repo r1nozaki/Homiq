@@ -1,5 +1,5 @@
-import AuthIntroCard from '../components/AuthIntroCard';
-import AuthForm from '../components/AuthForm';
+import AuthIntroCard from '../components/Authorization/AuthIntroCard';
+import AuthForm from '../components/Authorization/AuthForm';
 
 import { bgAuth } from '../assets/backgrounds/bg';
 

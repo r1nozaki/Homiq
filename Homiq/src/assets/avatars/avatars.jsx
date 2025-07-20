@@ -15,6 +15,10 @@ import Realtor14 from './Realtor14.jpg';
 import Realtor17 from './Realtor17.jpg';
 import Realtor18 from './Realtor18.jpg';
 import Realtor19 from './Realtor19.jpg';
+import Person1 from './Person1.jpg';
+import Person2 from './Person2.jpg';
+import Person3 from './Person3.jpg';
+import Person4 from './Person4.jpg';
 
 export {
   avatar1,
@@ -34,4 +38,8 @@ export {
   Realtor17,
   Realtor18,
   Realtor19,
+  Person1,
+  Person2,
+  Person3,
+  Person4,
 };

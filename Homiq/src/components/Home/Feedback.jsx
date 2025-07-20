@@ -1,6 +1,6 @@
 import FeedbackCard from './FeedbackCard';
 
-import { avatar1, avatar2, avatar3 } from '../assets/avatars/avatars';
+import { avatar1, avatar2, avatar3 } from '../../assets/avatars/avatars';
 import { FaAngleRight } from 'react-icons/fa';
 
 const feedbacks = [
