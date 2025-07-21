@@ -60,7 +60,7 @@ const RealEstateAssortiment = () => {
     </div>
   ) : filteredData.length === 0 ? (
     <div className='text-center font-bold text-4xl mx-auto my-20 text-[#1e3a1e]'>
-      Not found matches
+      🏠 Not found matches
     </div>
   ) : type === 'sale' ? (
     <SaleLayout data={filteredData} type='sale' showNotification={showNotification} />

@@ -33,7 +33,7 @@ const EstateDetails = () => {
     return (
       <>
         <Header />
-        <div className='text-center text-xl mt-20'>🏠 Об'єкт не знайдено</div>
+        <div className='text-center text-xl mt-20'>🏠 Not found matches</div>
       </>
     );
   }
@@ -68,7 +68,7 @@ const EstateDetails = () => {
     setFavourite(newFav);
     if (newFav) {
       setFavNotification(true);
-      setTimeout(() => setFavNotification(false), 1000);
+      setTimeout(() => setFavNotification(false), 2000);
     }
   };
 
