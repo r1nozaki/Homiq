@@ -49,7 +49,7 @@ const AboutUs = () => {
               Building trust, one home at a time
             </h2>
             <p className='text-lg max-w-115 mt-5'>
-              At HOMEIQ, we believe everyone deserves a home that reflects their dreams.
+              At HOMIQ, we believe everyone deserves a home that reflects their dreams.
               Our mission is to simplify real estate experiences by offering personalized,
               smart, and transparent services
             </p>

@@ -42,7 +42,7 @@ const Footer = () => {
       <div className='flex gap-53.5'>
         <div className='w-88'>
           <a href='#' className='uppercase text-green-500 font-medium text-2xl '>
-            Homeiq
+            Homiq
           </a>
           <p className='text-[#1F2744] w-80 mt-4'>
             We have built our reputation as true local area experts.

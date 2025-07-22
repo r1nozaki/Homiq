@@ -1,6 +1,14 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage as FormikErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { auth, googleProvider, githubProvider } from '../../firebaseConfig';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from 'firebase/auth';
+
 import {
   FaUser,
   FaLock,
@@ -12,11 +20,60 @@ import {
 } from 'react-icons/fa6';
 import { FaSignInAlt } from 'react-icons/fa';
 
-const AuthForm = () => {
+const AuthForm = ({
+  setRegNotification,
+  setRegError,
+  setLogNotification,
+  setLogError,
+}) => {
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleRegister = async values => {
+    try {
+      await createUserWithEmailAndPassword(auth, values.userEmail, values.userPassword);
+      setRegNotification(true);
+      setTimeout(() => {
+        setRegNotification(false);
+        navigate('/home');
+      }, 2000);
+    } catch {
+      setRegError(true);
+      setTimeout(() => setRegError(false), 2000);
+    }
+  };
+
+  const loginWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      setLogNotification(true);
+      setTimeout(() => {
+        setLogNotification(false);
+        navigate('/home');
+      }, 2000);
+    } catch {
+      setLogError(true);
+      setTimeout(() => setLogError(false), 2000);
+    }
+  };
+
+  const loginWithGithub = async () => {
+    try {
+      await signInWithPopup(auth, githubProvider);
+      setLogNotification(true);
+      setTimeout(() => {
+        setLogNotification(false);
+        navigate('/home');
+      }, 2000);
+    } catch {
+      setLogError(true);
+      setTimeout(() => setLogError(false), 2000);
+    }
   };
 
   return (
@@ -33,11 +90,25 @@ const AuthForm = () => {
           userEmail: Yup.string().required('This field is required').email(),
           userPassword: Yup.string()
             .required('No password provided.')
-            .min(8, 'Password is too short - should be 8 chars minimum.')
-            .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
+            .min(8, 'Password is too short - should be 8 chars minimum.'),
         })}
+        onSubmit={async (values, { setSubmitting }) => {
+          try {
+            await signInWithEmailAndPassword(auth, values.userEmail, values.userPassword);
+            setLogNotification(true);
+            setTimeout(() => {
+              setLogNotification(false);
+              navigate('/home');
+            }, 2000);
+          } catch {
+            setLogError(true);
+            setTimeout(() => setLogError(false), 2000);
+          } finally {
+            setSubmitting(false);
+          }
+        }}
       >
-        {({ errors, touched }) => (
+        {({ values, errors, touched, isSubmitting }) => (
           <Form className='flex flex-col'>
             <div className='flex items-center gap-3'>
               <FaUser />
@@ -52,7 +123,6 @@ const AuthForm = () => {
                   type='email'
                   placeholder='Enter email'
                   className='outline-none text-gray-600'
-                  onChange={e => setEmail(e.target.value)}
                 ></Field>
               </div>
             </div>
@@ -75,7 +145,6 @@ const AuthForm = () => {
                   type={showPassword ? 'text' : 'password'}
                   placeholder='Create or enter password'
                   className='outline-none  text-gray-600'
-                  onChange={e => setPassword(e.target.value)}
                 ></Field>
                 <button
                   type='button'
@@ -92,11 +161,19 @@ const AuthForm = () => {
               name='userPassword'
             />
 
-            <button className='w-full bg-indigo-600 text-white  px-4 py-2 rounded-lg mt-3 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 hover:bg-indigo-700'>
+            <button
+              type='submit'
+              disabled={isSubmitting}
+              className='w-full bg-indigo-600 text-white  px-4 py-2 rounded-lg mt-3 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 hover:bg-indigo-700'
+            >
               <FaSignInAlt className='mr-2' /> Login
             </button>
 
-            <button className='w-full bg-green-600 text-white  px-4 py-2 rounded-lg mt-3 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 hover:bg-green-700'>
+            <button
+              type='button'
+              onClick={() => handleRegister(values)}
+              className='w-full bg-green-600 text-white  px-4 py-2 rounded-lg mt-3 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 hover:bg-green-700'
+            >
               <FaUserPlus className='mr-2' /> Register
             </button>
 
@@ -107,11 +184,17 @@ const AuthForm = () => {
             </div>
 
             <div className='flex flex-col gap-3 justify-center pt-3'>
-              <button className='bg-red-500 text-white px-6 py-3 rounded-lg flex items-center transition-transform duration-300 transform hover:scale-105 hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-red-400'>
+              <button
+                onClick={loginWithGoogle}
+                className='bg-red-500 text-white px-6 py-3 rounded-lg flex items-center transition-transform duration-300 transform hover:scale-105 hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-red-400'
+              >
                 <FaGoogle className='mr-3 size-11' /> Login with Google
               </button>
 
-              <button className='bg-gray-800 text-white px-6 py-3 rounded-lg flex items-center transition-transform duration-300 transform hover:scale-105 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-500'>
+              <button
+                onClick={loginWithGithub}
+                className='bg-gray-800 text-white px-6 py-3 rounded-lg flex items-center transition-transform duration-300 transform hover:scale-105 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-500'
+              >
                 <FaGithub className='mr-3 size-11' /> Login with Github
               </button>
             </div>

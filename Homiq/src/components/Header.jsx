@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className='flex items-center justify-between w-full px-20 py-4 bg-[#F5F5F5]'>
       <Link to='/home' className='uppercase text-green-500 font-medium text-2xl '>
-        Homeiq
+        Homiq
       </Link>
 
       <nav className='flex gap-6'>
