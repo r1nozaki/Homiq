@@ -1,10 +1,9 @@
-import { StrictMode } from 'react';
+import { HeadProvider } from 'react-head';
 import { createRoot } from 'react-dom/client';
-
 import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  <HeadProvider>
     <App />
-  </StrictMode>
+  </HeadProvider>
 );

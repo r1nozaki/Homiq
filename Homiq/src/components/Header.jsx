@@ -1,7 +1,18 @@
+import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { auth } from '../firebaseConfig';
+
 import { FaHeart, FaGear } from 'react-icons/fa6';
 
 const Header = () => {
+  const [userEmail, setUserEmail] = useState('');
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      user ? setUserEmail(user.email) : setUserEmail('');
+    });
+    return () => unsubscribe();
+  }, []);
   return (
     <header className='flex items-center justify-between w-full px-20 py-4 bg-[#F5F5F5]'>
       <Link to='/home' className='uppercase text-green-500 font-medium text-2xl '>
@@ -42,7 +53,7 @@ const Header = () => {
           <FaGear size={22} />
         </a>
         <div className='w-10 h-10 flex items-center justify-center bg-green-400 text-black rounded-full text-lg font-bold'>
-          V
+          {userEmail ? userEmail.charAt(0).toUpperCase() : 'NA'}
         </div>
       </div>
     </header>

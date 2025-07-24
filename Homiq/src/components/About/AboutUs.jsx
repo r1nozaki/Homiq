@@ -1,4 +1,7 @@
+import { Title, Meta } from 'react-head';
+
 import PersonTeamCard from './PersontTeamCard';
+import MapComponent from './MapComponent';
 import {
   FaPhoneAlt,
   FaRegHeart,
@@ -41,6 +44,8 @@ const AboutUs = () => {
 
   return (
     <>
+      <Title>About Homiq</Title>
+      <Meta name='description' content='Page about Homiq' />
       <section className='px-20 pt-30 bg-[#F5F5F5]'>
         <div className='flex gap-10 items-center'>
           <div className='w-1/2'>
@@ -134,6 +139,12 @@ const AboutUs = () => {
               — we’ve got you covered end-to-end.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className='my-5'>
+        <div>
+          <MapComponent />
         </div>
       </section>
     </>

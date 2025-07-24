@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
+import { Title, Meta } from 'react-head';
 import { HashLoader } from 'react-spinners';
 
 import TwoIntroCard from './TwoIntroCard';
@@ -78,6 +79,8 @@ const RealEstateAssortiment = () => {
 
   return (
     <>
+      <Title>Property</Title>
+      <Meta name='description' content='Real estate property' />
       <Header />
       <div className='bg-gradient-to-b from-[#F5FFF5] to-[#E8F5E9] flex justify-center gap-8 h-auto p-8'>
         <TwoIntroCard handleSetType={handleSetType} />

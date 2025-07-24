@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { toggleFavorite, isInFavorites } from '../../utils/estateFavoriteUtils';
+import { Title, Meta } from 'react-head';
 
 import ImageSlider from '../ImageSlider';
 import {
@@ -88,6 +89,8 @@ const EstateDetails = () => {
 
   return (
     <>
+      <Title>{address}</Title>
+      <Meta name='description' content='Page about the selected real estate' />
       <Header />
       <section className=' mx-10 px-6 flex gap-5 relative'>
         <div className=' gap-5 my-10 max-w-248'>

@@ -41,10 +41,10 @@ const AuthForm = ({
       setTimeout(() => {
         setRegNotification(false);
         navigate('/home');
-      }, 2000);
+      }, 1000);
     } catch {
       setRegError(true);
-      setTimeout(() => setRegError(false), 2000);
+      setTimeout(() => setRegError(false), 1000);
     }
   };
 
@@ -55,10 +55,10 @@ const AuthForm = ({
       setTimeout(() => {
         setLogNotification(false);
         navigate('/home');
-      }, 2000);
+      }, 1000);
     } catch {
       setLogError(true);
-      setTimeout(() => setLogError(false), 2000);
+      setTimeout(() => setLogError(false), 1000);
     }
   };
 
@@ -69,10 +69,10 @@ const AuthForm = ({
       setTimeout(() => {
         setLogNotification(false);
         navigate('/home');
-      }, 2000);
+      }, 1000);
     } catch {
       setLogError(true);
-      setTimeout(() => setLogError(false), 2000);
+      setTimeout(() => setLogError(false), 1000);
     }
   };
 
@@ -99,10 +99,10 @@ const AuthForm = ({
             setTimeout(() => {
               setLogNotification(false);
               navigate('/home');
-            }, 2000);
+            }, 1000);
           } catch {
             setLogError(true);
-            setTimeout(() => setLogError(false), 2000);
+            setTimeout(() => setLogError(false), 1000);
           } finally {
             setSubmitting(false);
           }
