@@ -30,7 +30,7 @@ const Filters = ({ type, filters, onChange, onApply, onClear }) => {
   };
 
   return (
-    <div className='w-1/4 rounded-2xl shadow-2xl h-300 mx-2 mt-4 p-5'>
+    <div className='w-1/4 rounded-2xl shadow-2xl h-300 mx-2 mt-4 p-5 bg-white'>
       <h2 className='font-semibold text-green-500 text-2xl'>Filters</h2>
 
       <div className='mt-3'>

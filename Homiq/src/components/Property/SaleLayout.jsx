@@ -2,7 +2,7 @@ import SaleItem from './SaleItem';
 
 const SaleLayout = ({ data, type, showNotification }) => {
   return (
-    <div className='w-3/4 grid grid-cols-3 gap-3 mt-4 mb-4'>
+    <div className='w-3/4 grid grid-cols-3 gap-3 mt-4 mb-4 '>
       {data.map(item => (
         <SaleItem
           key={item.id}

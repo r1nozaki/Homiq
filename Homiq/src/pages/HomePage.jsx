@@ -1,18 +1,17 @@
-import Header from '../components/Header';
 import Hero from '../components/Home/Hero';
 import OurAdvantage from '../components/Home/OurAdvantage';
 import AboutHomiq from '../components/About/AboutHomiq';
 import Feedback from '../components/Home/Feedback';
-import Footer from '../components/Footer';
+import ScrollToTopBtn from '../components/ScrollToTopBtn';
+
 const HomePage = () => {
   return (
     <>
-      <Header />
       <Hero />
       <OurAdvantage />
       <AboutHomiq />
       <Feedback />
-      <Footer />
+      <ScrollToTopBtn />
     </>
   );
 };

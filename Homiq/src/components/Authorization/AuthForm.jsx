@@ -87,7 +87,9 @@ const AuthForm = ({
           userPassword: '',
         }}
         validationSchema={Yup.object({
-          userEmail: Yup.string().required('This field is required').email(),
+          userEmail: Yup.string()
+            .required('This field is required')
+            .email('Invalid email'),
           userPassword: Yup.string()
             .required('No password provided.')
             .min(8, 'Password is too short - should be 8 chars minimum.'),
@@ -164,7 +166,7 @@ const AuthForm = ({
             <button
               type='submit'
               disabled={isSubmitting}
-              className='w-full bg-indigo-600 text-white  px-4 py-2 rounded-lg mt-3 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 hover:bg-indigo-700'
+              className='w-full bg-indigo-600 text-white  px-4 py-2 rounded-lg mt-3 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 hover:bg-indigo-700 hover:cursor-pointer'
             >
               <FaSignInAlt className='mr-2' /> Login
             </button>
@@ -172,7 +174,7 @@ const AuthForm = ({
             <button
               type='button'
               onClick={() => handleRegister(values)}
-              className='w-full bg-green-600 text-white  px-4 py-2 rounded-lg mt-3 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 hover:bg-green-700'
+              className='w-full bg-green-600 text-white  px-4 py-2 rounded-lg mt-3 flex items-center justify-center transition duration-300 ease-in-out transform hover:scale-105 hover:bg-green-700 hover:cursor-pointer'
             >
               <FaUserPlus className='mr-2' /> Register
             </button>
@@ -182,25 +184,24 @@ const AuthForm = ({
               <span className='mx-2 text-gray-600'>OR</span>
               <hr className='flex-grow border-t border-gray-300' />
             </div>
-
-            <div className='flex flex-col gap-3 justify-center pt-3'>
-              <button
-                onClick={loginWithGoogle}
-                className='bg-red-500 text-white px-6 py-3 rounded-lg flex items-center transition-transform duration-300 transform hover:scale-105 hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-red-400'
-              >
-                <FaGoogle className='mr-3 size-11' /> Login with Google
-              </button>
-
-              <button
-                onClick={loginWithGithub}
-                className='bg-gray-800 text-white px-6 py-3 rounded-lg flex items-center transition-transform duration-300 transform hover:scale-105 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-500'
-              >
-                <FaGithub className='mr-3 size-11' /> Login with Github
-              </button>
-            </div>
           </Form>
         )}
       </Formik>
+      <div className='flex flex-col gap-3 justify-center pt-3'>
+        <button
+          onClick={loginWithGoogle}
+          className='bg-red-500 text-white px-6 py-3 rounded-lg flex items-center transition-transform duration-300 transform hover:scale-105 hover:bg-red-600 focus:outline-none focus:ring-4 focus:ring-red-400 hover:cursor-pointer'
+        >
+          <FaGoogle className='mr-3 size-11' /> Login with Google
+        </button>
+
+        <button
+          onClick={loginWithGithub}
+          className='bg-gray-800 text-white px-6 py-3 rounded-lg flex items-center transition-transform duration-300 transform hover:scale-105 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-500 hover:cursor-pointer'
+        >
+          <FaGithub className='mr-3 size-11' /> Login with Github
+        </button>
+      </div>
     </div>
   );
 };

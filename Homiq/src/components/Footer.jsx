@@ -68,7 +68,7 @@ const Footer = () => {
                 </label>
                 <div className='flex items-center mt-4 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]'>
                   <Field
-                    type='text'
+                    type='email'
                     name='newsletter'
                     id='newsletter'
                     className={`bg-[#FEFEFF] placeholder-gray-300 w-65 h-10.5 py-2 pl-4 outline-none ${

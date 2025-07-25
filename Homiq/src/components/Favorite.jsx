@@ -34,7 +34,7 @@ const Favorite = () => {
 
   if (favorite.length === 0) {
     return (
-      <div className='text-center text-[#1e3a1e] text-2xl mt-10'>
+      <div className='text-center text-[#1e3a1e] text-2xl mt-10  min-h-screen'>
         You have no saved ads.
       </div>
     );

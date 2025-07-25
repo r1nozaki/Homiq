@@ -1,4 +1,4 @@
 import bgAuth from './bgAuth.jpg';
 import bgHouse from './bgHouse.png';
-
-export { bgAuth, bgHouse };
+import bgContact from './bgContact.png';
+export { bgAuth, bgHouse, bgContact };

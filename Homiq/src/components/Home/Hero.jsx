@@ -1,8 +1,8 @@
 import { bgHouse } from '../../assets/backgrounds/bg';
 
-const Hero = () => {
+const Hero = ({ topRef }) => {
   return (
-    <div className='bg-[#F5F5F5] w-full pl-20 relative h-190'>
+    <div ref={topRef} className='bg-[#F5F5F5] w-full pl-20 relative h-190 '>
       <span className='uppercase w-30 h-10 bg-[#F8F9FE] text-[#69B99D] text-center text-sm pt-3 inline-block mt-10 font-semibold'>
         Real Estate
       </span>

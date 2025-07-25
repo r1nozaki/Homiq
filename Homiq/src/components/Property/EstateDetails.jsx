@@ -17,7 +17,6 @@ import { PiWall } from 'react-icons/pi';
 import { MdOutlineStairs } from 'react-icons/md';
 import { TbAirConditioning } from 'react-icons/tb';
 import { FaArrowLeftLong } from 'react-icons/fa6';
-import Header from '../Header';
 import ErrorMessage from '../ErrorMessage';
 import Notification from '../Notification';
 import SaleData from '../../data/SaleRealEstateData';
@@ -31,12 +30,7 @@ const EstateDetails = () => {
   const estate = data.find(item => String(item.id) === id);
 
   if (!estate) {
-    return (
-      <>
-        <Header />
-        <div className='text-center text-xl mt-20'>🏠 Not found matches</div>
-      </>
-    );
+    return <div className='text-center text-xl mt-20'>🏠 Not found matches</div>;
   }
 
   const {
@@ -91,7 +85,6 @@ const EstateDetails = () => {
     <>
       <Title>{address}</Title>
       <Meta name='description' content='Page about the selected real estate' />
-      <Header />
       <section className=' mx-10 px-6 flex gap-5 relative'>
         <div className=' gap-5 my-10 max-w-248'>
           <div className='w-248'>

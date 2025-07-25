@@ -4,7 +4,6 @@ import { HashLoader } from 'react-spinners';
 
 import TwoIntroCard from './TwoIntroCard';
 import Filters from './Filters';
-import Header from '../Header';
 import SaleLayout from './SaleLayout';
 import RentLayout from './RentLayout';
 import RentData from '../../data/RentRealEstateData';
@@ -81,12 +80,11 @@ const RealEstateAssortiment = () => {
     <>
       <Title>Property</Title>
       <Meta name='description' content='Real estate property' />
-      <Header />
       <div className='bg-gradient-to-b from-[#F5FFF5] to-[#E8F5E9] flex justify-center gap-8 h-auto p-8'>
         <TwoIntroCard handleSetType={handleSetType} />
       </div>
 
-      <div className='bg-[#F5F5F5] w-full flex gap-3 '>
+      <div className=' bg-gradient-to-b from-[#E8F5E9] to-[#F5FFF5] w-full flex gap-3 '>
         <Filters
           type={type}
           filters={draftFilters}

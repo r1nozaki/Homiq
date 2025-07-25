@@ -1,5 +1,6 @@
+import { useRef } from 'react';
 import { Title, Meta } from 'react-head';
-
+import ScrollToTopBtn from '../ScrollToTopBtn';
 import PersonTeamCard from './PersontTeamCard';
 import MapComponent from './MapComponent';
 import {
@@ -147,6 +148,7 @@ const AboutUs = () => {
           <MapComponent />
         </div>
       </section>
+      <ScrollToTopBtn />
     </>
   );
 };
