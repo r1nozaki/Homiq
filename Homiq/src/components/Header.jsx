@@ -14,7 +14,7 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
   return (
-    <header className='flex items-center justify-between w-full px-20 py-4 bg-[#F5F5F5]'>
+    <header className='fixed top-0 left-0 w-full flex items-center justify-between px-20 py-4 bg-[#F5F5F5] z-50 '>
       <Link to='/home' className='uppercase text-green-500 font-medium text-2xl '>
         Homiq
       </Link>
@@ -49,9 +49,9 @@ const Header = () => {
         <Link to='/favorite' className='text-black cursor-pointer hover:text-green-400'>
           <FaHeart className='' size={22} />
         </Link>
-        <a className='text-black cursor-pointer hover:text-green-400'>
+        <Link to='/settings' className='text-black cursor-pointer hover:text-green-400'>
           <FaGear size={22} />
-        </a>
+        </Link>
         <div className='w-10 h-10 flex items-center justify-center bg-green-400 text-black rounded-full text-lg font-bold'>
           {userEmail ? userEmail.charAt(0).toUpperCase() : 'NA'}
         </div>

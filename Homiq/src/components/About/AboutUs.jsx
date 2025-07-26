@@ -15,6 +15,7 @@ import {
 
 import RealtorTeam from '../../assets/RealtorTeam.jpg';
 import { Person1, Person2, Person3, Person4 } from '../../assets/avatars/avatars';
+
 const AboutUs = () => {
   const PersonsTeam = [
     {
@@ -47,7 +48,9 @@ const AboutUs = () => {
     <>
       <Title>About Homiq</Title>
       <Meta name='description' content='Page about Homiq' />
-      <section className='px-20 pt-30 bg-[#F5F5F5]'>
+
+      {/* ✅ Додано padding-top, щоб компенсувати fixed header */}
+      <section className='px-20 pt-[80px] bg-[#F5F5F5]'>
         <div className='flex gap-10 items-center'>
           <div className='w-1/2'>
             <h1 className='font-bold text-7xl'>Who we are</h1>
@@ -93,7 +96,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <section className='px-20  pt-20 pb-20 '>
+      <section className='px-20 pt-20 pb-20 '>
         <h2 className='text-5xl font-bold'>Meet our team</h2>
         <div className='mt-10 grid grid-cols-4 gap-40'>
           {PersonsTeam.map((item, index) => (
@@ -108,7 +111,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <section className='px-20  pb-10 '>
+      <section className='px-20 pb-10 '>
         <h2 className='text-5xl font-bold'>What we do</h2>
         <div className='grid grid-cols-3 gap-40 mt-15'>
           <div className='w-87 h-66.5'>
@@ -148,6 +151,7 @@ const AboutUs = () => {
           <MapComponent />
         </div>
       </section>
+
       <ScrollToTopBtn />
     </>
   );

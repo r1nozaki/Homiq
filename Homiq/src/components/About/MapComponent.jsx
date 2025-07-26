@@ -75,10 +75,17 @@ const MapComponent = () => {
       lat: 48.4649,
       lng: 35.0521,
     },
+    {
+      id: 10,
+      name: 'Home su4ki',
+      address: '9th May Street',
+      lat: 45.205307,
+      lng: 33.338744,
+    },
   ];
 
   return (
-    <div className='w-full flex flex-col items-center'>
+    <div className='w-full flex flex-col items-center pt-20 '>
       <h2 className='text-2xl font-bold mb-4 px-4 py-2 rounded-lg'>
         You cand find us here!
       </h2>
