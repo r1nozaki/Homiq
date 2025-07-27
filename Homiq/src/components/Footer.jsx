@@ -108,15 +108,15 @@ const Footer = () => {
                 <Link to='/about' className='hover:underline'>
                   About us
                 </Link>
-                <a href='#' className='hover:underline'>
-                  Careers
-                </a>
+                <Link to='/help' className='hover:underline'>
+                  Help
+                </Link>
                 <a href='#' className='hover:underline'>
                   Terms & Conditions
                 </a>
-                <a href='#' className='hover:underline'>
+                <Link to='/privacy' className='hover:underline'>
                   Privacy & Policy
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -145,18 +145,21 @@ const Footer = () => {
                 <a
                   href='https://web.telegram.org/k/#@r1nozakio'
                   className='w-10 h-10 flex items-center justify-center rounded-full bg-white text-green-500 transition duration-300 ease-in-out transform hover:scale-110 hover:text-green-600 hover:outline'
+                  target='blank'
                 >
                   <FaTelegram className='text-green-500' />
                 </a>
                 <a
                   href='https://www.instagram.com/_r1nozaki/?hl=ru'
                   className='w-10 h-10 flex items-center justify-center rounded-full bg-white text-green-500 transition duration-300 ease-in-out transform hover:scale-110 hover:text-green-600 hover:outline'
+                  target='blank'
                 >
                   <FaInstagramSquare className='text-green-500' />
                 </a>
                 <a
                   href='https://x.com/r1nozaki'
                   className='w-10 h-10 flex items-center justify-center rounded-full bg-white text-green-500 transition duration-300 ease-in-out transform hover:scale-110 hover:text-green-600 hover:outline'
+                  target='blank'
                 >
                   <FaSquareXTwitter className='text-green-500' />
                 </a>

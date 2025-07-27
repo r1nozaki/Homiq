@@ -54,16 +54,22 @@ const Settings = () => {
         <div className='flex w-full max-w-2xl bg-[#f5f5f5] shadow-lg rounded-lg'>
           <div className='w-1/3 flex flex-col bg-green-100 items-center p-5 gap-3 border-r'>
             <h2 className='font-medium text-2xl'>Menu</h2>
-            <Link className='border-2 border-black text-black w-full rounded-lg p-2 text-center bg-green-300 hover:bg-green-400'>
-              Privacy & Policy
-            </Link>
             <Link
               to='/home'
               className='border-2 border-black text-black w-full rounded-lg p-2 text-center bg-green-300 hover:bg-green-400'
             >
               Home
             </Link>
-            <Link className='border-2 border-black text-black w-full rounded-lg p-2 text-center bg-green-300 hover:bg-green-400'>
+            <Link
+              to='/privacy'
+              className='border-2 border-black text-black w-full rounded-lg p-2 text-center bg-green-300 hover:bg-green-400'
+            >
+              Privacy & Policy
+            </Link>
+            <Link
+              to='/help'
+              className='border-2 border-black text-black w-full rounded-lg p-2 text-center bg-green-300 hover:bg-green-400'
+            >
               Help
             </Link>
             <Link
