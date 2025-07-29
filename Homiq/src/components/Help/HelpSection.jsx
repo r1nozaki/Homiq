@@ -1,5 +1,7 @@
 import HelpContent from './HelpContent';
 import { Link } from 'react-router-dom';
+import ScrollToTopBtn from '../ScrollToTopBtn';
+
 const HelpSection = () => {
   return (
     <section className='min-h-screen w-full py-16 px-6 text-center'>
@@ -78,6 +80,7 @@ const HelpSection = () => {
           </a>
         </div>
       </div>
+      <ScrollToTopBtn />
     </section>
   );
 };

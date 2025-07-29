@@ -111,9 +111,9 @@ const Footer = () => {
                 <Link to='/help' className='hover:underline'>
                   Help
                 </Link>
-                <a href='#' className='hover:underline'>
+                <Link to='/terms' className='hover:underline'>
                   Terms & Conditions
-                </a>
+                </Link>
                 <Link to='/privacy' className='hover:underline'>
                   Privacy & Policy
                 </Link>
@@ -128,9 +128,9 @@ const Footer = () => {
                 <a href='#' className='hover:underline'>
                   Find agents
                 </a>
-                <a href='#' className='hover:underline'>
+                <Link to='/lifestyle' className='hover:underline'>
                   Lifestyle
-                </a>
+                </Link>
                 <a href='#' className='hover:underline'>
                   Legal notic
                 </a>

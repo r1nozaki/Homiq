@@ -9,6 +9,8 @@ import Contact from './pages/Contact';
 import SettingsEstate from './pages/SettingsEstate';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Help from './pages/Help';
+import TermsConditions from './pages/TermsConditions';
+import Lifestyle from './pages/Lifestyle';
 import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -59,6 +61,8 @@ const App = () => {
           <Route path='/settings' element={<SettingsEstate />} />
           <Route path='/privacy' element={<PrivacyPolicy />} />
           <Route path='/help' element={<Help />} />
+          <Route path='/terms' element={<TermsConditions />} />
+          <Route path='/lifestyle' element={<Lifestyle />} />
           <Route path='/404' element={<Page404 />} />
           <Route path='*' element={<Navigate to='/404' />} />
         </Routes>

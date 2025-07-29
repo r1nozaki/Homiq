@@ -1,17 +1,18 @@
 import PrivacyContent from './PrivacyContent';
 import { Link } from 'react-router-dom';
+import ScrollToTopBtn from '../ScrollToTopBtn';
 
 const PrivacySection = () => {
   return (
     <section className='min-h-screen  w-full py-16 px-6 text-center'>
       <h1 className='text-4xl font-extrabold text-green-500 mb-8'>Privacy & Policy</h1>
       <p className='max-w-4xl mx-auto text-xl mb-12'>
-        Welcome to HOMIQ. We are committed to protecting your privacy and ensuring that
-        your personal information is handled in a safe and responsible manner. This
-        Privacy Policy outlines how we collect, use, store, and protect your information
-        when you use our website.
+        Welcome to <span className='text-green-500 font-semibold'>HOMIQ</span>. We are
+        committed to protecting your privacy and ensuring that your personal information
+        is handled in a safe and responsible manner. This Privacy Policy outlines how we
+        collect, use, store, and protect your information when you use our website.
       </p>
-      <div className='max-w-4xl text-left mx-auto mb-16 '>
+      <div className='max-w-4xl text-left mx-auto mb-16'>
         <PrivacyContent
           title='1. Information We Collect'
           subtitle='We may collect the following types of information:'
@@ -83,6 +84,7 @@ const PrivacySection = () => {
         />
       </div>
       <div className='text-lg'>Last Update: July 2025</div>
+      <ScrollToTopBtn />
     </section>
   );
 };

@@ -153,7 +153,6 @@ const EstateDetails = () => {
                 )}
               </button>
             </div>
-            <div></div>
           </div>
 
           <div className='mt-2'>
