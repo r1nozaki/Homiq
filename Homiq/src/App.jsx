@@ -6,10 +6,12 @@ import About from './pages/About';
 import FavEstate from './pages/FavEstate';
 import Page404 from './pages/404';
 import Contact from './pages/Contact';
+import Reviews from './pages/Reviews';
 import SettingsEstate from './pages/SettingsEstate';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Help from './pages/Help';
 import TermsConditions from './pages/TermsConditions';
+import LegalNotice from './pages/LegalNotice';
 import Lifestyle from './pages/Lifestyle';
 import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer';
@@ -62,7 +64,9 @@ const App = () => {
           <Route path='/privacy' element={<PrivacyPolicy />} />
           <Route path='/help' element={<Help />} />
           <Route path='/terms' element={<TermsConditions />} />
+          <Route path='/legal' element={<LegalNotice />} />
           <Route path='/lifestyle' element={<Lifestyle />} />
+          <Route path='/reviews' element={<Reviews />} />
           <Route path='/404' element={<Page404 />} />
           <Route path='*' element={<Navigate to='/404' />} />
         </Routes>

@@ -19,6 +19,12 @@ import Person1 from './Person1.jpg';
 import Person2 from './Person2.jpg';
 import Person3 from './Person3.jpg';
 import Person4 from './Person4.jpg';
+import Review1 from './Review1.jpg';
+import Review2 from './Review2.jpg';
+import Review3 from './Review3.jpg';
+import Review4 from './Review4.jpg';
+import Review5 from './Review5.jpg';
+import Review6 from './Review6.jpg';
 
 export {
   avatar1,
@@ -42,4 +48,10 @@ export {
   Person2,
   Person3,
   Person4,
+  Review1,
+  Review2,
+  Review3,
+  Review4,
+  Review5,
+  Review6,
 };

@@ -1,5 +1,5 @@
 import FeedbackCard from './FeedbackCard';
-
+import { Link } from 'react-router-dom';
 import { avatar1, avatar2, avatar3 } from '../../assets/avatars/avatars';
 import { FaAngleRight } from 'react-icons/fa';
 
@@ -38,7 +38,7 @@ const Feedback = () => {
           Peopel say about us?
         </h2>
         <button className='text-[#69B99D] flex items-center gap-2 text-lg font-medium cursor-pointer hover:underline'>
-          Learn More
+          <Link to='/reviews'>Learn More</Link>
           <FaAngleRight className='w-5 h-5 rounded-full bg-[#200E32] text-white ' />
         </button>
       </div>

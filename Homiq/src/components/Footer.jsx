@@ -125,15 +125,12 @@ const Footer = () => {
             <span className='text-[#0B2E29] text-xl font-medium'>Community</span>
             <ul className='mt-4'>
               <li className='text-gray-500 flex flex-col gap-4 '>
-                <a href='#' className='hover:underline'>
-                  Find agents
-                </a>
                 <Link to='/lifestyle' className='hover:underline'>
                   Lifestyle
                 </Link>
-                <a href='#' className='hover:underline'>
-                  Legal notic
-                </a>
+                <Link to='/legal' className='hover:underline'>
+                  Legal notice
+                </Link>
               </li>
             </ul>
           </div>
