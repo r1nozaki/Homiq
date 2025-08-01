@@ -29,17 +29,17 @@ const feedbacks = [
 
 const Feedback = () => {
   return (
-    <div className='w-full bg-white px-20 pt-30'>
-      <span className='uppercase w-69 h-10 bg-[#F5F5F5] text-[#69B99D] text-center text-sm pt-3 inline-block mt-13 font-semibold'>
+    <div className='w-full bg-white md:px-15 px-5 pt-30'>
+      <span className='uppercase w-69 h-10 bg-[#F5F5F5] text-[#69B99D] text-center text-sm pt-3 inline-block md:mt-13 font-semibold'>
         CUSTOMER TESTIMONIAL
       </span>
       <div className='flex items-center justify-between'>
-        <h2 className='text-5xl font-bold w-120 mt-4 text-[#054457]'>
+        <h2 className='text-xl md:text-5xl font-bold w-60 md:w-120 mt-4 text-[#054457]'>
           Peopel say about us?
         </h2>
-        <button className='text-[#69B99D] flex items-center gap-2 text-lg font-medium cursor-pointer hover:underline'>
+        <button className='text-[#69B99D] flex items-center gap-2 text-base md:text-lg font-medium cursor-pointer hover:underline mt-4'>
           <Link to='/reviews'>Learn More</Link>
-          <FaAngleRight className='w-5 h-5 rounded-full bg-[#200E32] text-white ' />
+          <FaAngleRight className='w-4 h-4 md:w-5 md:h-5 rounded-full bg-[#200E32] text-white ' />
         </button>
       </div>
 

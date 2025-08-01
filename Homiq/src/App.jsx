@@ -1,3 +1,12 @@
+import { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from 'react-router-dom';
+
 import Authorization from './pages/Authorization';
 import HomePage from './pages/HomePage';
 import Property from './pages/Property';
@@ -17,32 +26,26 @@ import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer';
 import Header from './components/Header';
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-  useLocation,
-} from 'react-router';
-
 import './App.css';
 
 const Layout = ({ children }) => {
   const location = useLocation();
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+
   const hideLayoutRoutes = ['/', '/404'];
   const hideLayout = hideLayoutRoutes.includes(location.pathname);
 
   return (
     <>
-      {!hideLayout && <Header />}
+      {!hideLayout && <Header isFooterVisible={isFooterVisible} />}
 
       {hideLayout ? (
         <>{children}</>
       ) : (
-        <main className='pt-18 min-h-screen bg-white'>{children}</main>
+        <main className='pt-16 min-h-screen bg-white'>{children}</main>
       )}
 
-      {!hideLayout && <Footer />}
+      {!hideLayout && <Footer setIsFooterVisible={setIsFooterVisible} />}
     </>
   );
 };

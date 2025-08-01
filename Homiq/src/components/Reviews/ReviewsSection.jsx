@@ -23,7 +23,7 @@ const ReviewsSections = () => {
   };
 
   return (
-    <section className='w-full min-h-screen px-20 pt-10 relative'>
+    <section className='w-full min-h-screen md:px-15 px-5 pt-10 relative'>
       <h1 className='text-6xl font-bold text-green-500 mb-2 text-center'>Reviews</h1>
       <p className='text-center text-2xl font-medium mb-8'>What our clients say</p>
 
@@ -56,7 +56,7 @@ const ReviewsSections = () => {
             className='fixed inset-0 bg-black/40 backdrop-blur-sm z-40 pointer-events-auto'
             onClick={() => setOpenModal(false)}
           />
-          <div className='fixed inset-0 flex items-center justify-center z-50 p-4 mt-18'>
+          <div className='fixed inset-0 flex md:items-center justify-center z-50 p-4 md:mt-18'>
             <ReviewAddForm setOpenModal={setOpenModal} addReview={addReview} />
           </div>
         </>

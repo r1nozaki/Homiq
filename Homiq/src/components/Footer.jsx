@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage as ErrorMessageFormik } from 'formik';
@@ -8,10 +8,27 @@ import ErrorMessage from './ErrorMessage';
 import { FaTelegram, FaInstagramSquare } from 'react-icons/fa';
 import { FaSquareXTwitter } from 'react-icons/fa6';
 
-const Footer = () => {
+const Footer = ({ setIsFooterVisible }) => {
   const [notification, setNotification] = useState(false);
   const [error, setError] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsFooterVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = footerRef.current;
+    if (currentRef) observer.observe(currentRef);
+
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+    };
+  }, [setIsFooterVisible]);
 
   const sendEmail = (values, actions) => {
     setIsSending(true);
@@ -38,9 +55,13 @@ const Footer = () => {
   };
 
   return (
-    <footer className='w-full h-98 bg-[#F5F5F5] px-20 pt-19 pb-25'>
-      <div className='flex gap-53.5'>
-        <div className='w-88'>
+    <footer
+      ref={footerRef}
+      id='footer'
+      className='w-full bg-[#F5F5F5] px-5 pt-20 pb-14 md:pb-24'
+    >
+      <div className='flex flex-col md:flex-row md:gap-53.5 gap-20 justify-center items-center'>
+        <div className='w-88 text-center'>
           <a href='#' className='uppercase text-green-500 font-medium text-2xl '>
             Homiq
           </a>
@@ -59,7 +80,7 @@ const Footer = () => {
             }}
           >
             {({ touched, errors }) => (
-              <Form className='mt-6'>
+              <Form className='mt-6 mb-2'>
                 <label
                   htmlFor='newsletter'
                   className='text-[#0B2E29] text-xl font-medium'
@@ -100,7 +121,7 @@ const Footer = () => {
           {error && <ErrorMessage error={error} text='An error occurred!' />}
         </div>
 
-        <div className='flex gap-30'>
+        <div className='flex flex-col gap-10 md:flex-row md:gap-30'>
           <div>
             <span className='text-[#0B2E29] text-xl font-medium'>Service</span>
             <ul className='mt-4'>
@@ -135,7 +156,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className='ml-10'>
+          <div className='md:ml-10'>
             <span className='text-[#0B2E29] text-xl font-medium'>Follow us on</span>
             <ul className='mt-4 '>
               <li className='text-gray-500 flex gap-4'>

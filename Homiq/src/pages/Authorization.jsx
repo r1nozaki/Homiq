@@ -14,7 +14,7 @@ const Authorization = () => {
 
   return (
     <div
-      className=' min-h-screen bg-cover bg-center flex items-center justify-center gap-10'
+      className=' min-h-screen bg-cover bg-center flex flex-col md:flex-row items-center justify-center gap-10'
       style={{ backgroundImage: `url("${bgAuth}")` }}
     >
       <AuthIntroCard />

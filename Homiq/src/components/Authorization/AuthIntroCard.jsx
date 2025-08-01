@@ -1,6 +1,6 @@
 const AuthIntroCard = () => {
   return (
-    <div className='w-200 h-150 p-25 rounded-2xl bg-[#f8f8d9] shadow-lg'>
+    <div className='w-200 h-150 p-25 rounded-2xl bg-[#f8f8d9] shadow-lg hidden md:block'>
       <h1 className='font-extrabold text-7xl text-center mb-6 text-blue-700'>
         Welcome to Homiq!
       </h1>
