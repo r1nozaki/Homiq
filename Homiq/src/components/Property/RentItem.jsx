@@ -77,7 +77,7 @@ const RentItem = ({
   };
 
   return (
-    <div className='w-87 h-165 border border-[#4CAF50] flex flex-col rounded-lg p-2'>
+    <div className='w-87 h-165 border border-[#4CAF50] flex flex-col rounded-lg p-2 bg-white'>
       <div className='relative'>
         {favourite ? (
           <FaHeart

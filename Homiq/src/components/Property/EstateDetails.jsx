@@ -85,21 +85,22 @@ const EstateDetails = () => {
     <>
       <Title>{address}</Title>
       <Meta name='description' content='Page about the selected real estate' />
-      <section className=' mx-10 px-6 flex gap-5 relative'>
-        <div className=' gap-5 my-10 max-w-248'>
-          <div className='w-248'>
+      <section className='mx-5 md:mx-10 px-2 md:px-6 flex flex-col md:flex-row gap-5 relative'>
+        <div className=' w-full gap-5 my-10 md:max-w-248'>
+          <div className='w-full md:w-248'>
             <ImageSlider images={images} />
           </div>
 
           <div className='mt-10'>
-            <div className='flex items-center gap-3'>
+            <div className='flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3'>
               <h2 className='text-2xl font-bold mr-3'>${price}</h2>
               <span className='text-sm text-gray-400 '>{pricePerSquare} $/м²</span>
             </div>
             <div className='mt-2'>
               <span className='text-lg'>{address}</span>
             </div>
-            <div className='grid grid-cols-3 gap-4 mt-2'>
+
+            <div className='grid grid-cols-2 sm:grid-cols-3 gap-4 mt-4'>
               <span className='flex items-center gap-3'>
                 <FaBed size={20} /> {countRooms}
               </span>
@@ -133,7 +134,7 @@ const EstateDetails = () => {
             <FaArrowLeftLong size={24} /> Back to list
           </Link>
         </div>
-        <div className='w-96 h-65 rounded-lg sticky top-4 bg-gray-100 p-5 my-10'>
+        <div className='w-full md:w-96 h-65 rounded-lg sticky top-4 bg-gray-100 p-5 my-10'>
           <div className='flex items-center justify-between'>
             <div>
               <span className='text-2xl font-bold mr-3'>${price}</span>

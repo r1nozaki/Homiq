@@ -5,7 +5,7 @@ import { FaAngleRight, FaAngleLeft } from 'react-icons/fa';
 
 const NextArrow = ({ onClick }) => (
   <button
-    className='absolute right-4 top-1/2 bg-neutral-800 text-white w-8 h-8 p-2 rounded-lg cursor-pointer transition duration-300 ease-in-out transform hover:scale-110 hover:bg-neutral-600'
+    className='hidden absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-neutral-800 text-white w-8 h-8 p-2 rounded-lg cursor-pointer transition duration-300 ease-in-out transform hover:scale-110 hover:bg-neutral-600'
     onClick={onClick}
   >
     <FaAngleRight />
@@ -14,7 +14,7 @@ const NextArrow = ({ onClick }) => (
 
 const PrevArrow = ({ onClick }) => (
   <button
-    className='absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-neutral-800 text-white w-8 h-8 p-2 rounded-lg cursor-pointer transition duration-300 ease-in-out transform hover:scale-110 hover:bg-neutral-600'
+    className='hidden absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-neutral-800 text-white w-8 h-8 p-2 rounded-lg cursor-pointer transition duration-300 ease-in-out transform hover:scale-110 hover:bg-neutral-600'
     onClick={onClick}
   >
     <FaAngleLeft />

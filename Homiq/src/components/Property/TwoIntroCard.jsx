@@ -3,7 +3,7 @@ import RentCard from '../../assets/RentCard.jpg';
 
 const TwoIntroCard = ({ handleSetType }) => {
   return (
-    <div className='flex gap-8 justify-center'>
+    <div className='flex flex-col md:flex-row gap-8 justify-center'>
       <div className='w-full max-w-sm h-[480px] bg-white rounded-xl p-6 flex flex-col items-center border-4 border-[#4CAF50] shadow-sm hover:shadow-md transition-shadow'>
         <h2 className='font-bold text-[#1e3a1e] text-4xl text-center mb-2'>
           Find Property for Sale

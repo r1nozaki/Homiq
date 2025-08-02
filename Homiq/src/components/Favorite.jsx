@@ -42,7 +42,7 @@ const Favorite = () => {
 
   return (
     <div className='pt-3 min-h-screen'>
-      <div className='w-full px-10 grid grid-cols-4 gap-10 '>
+      <div className='w-full sm:px-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-10 md:gap-10 sm:gap-5'>
         <AnimatePresence>
           {favorite.map(item => {
             const motionKey = `${item.type}-${item.id}`;

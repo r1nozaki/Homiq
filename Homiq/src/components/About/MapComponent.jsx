@@ -89,7 +89,7 @@ const MapComponent = () => {
       <h2 className='text-2xl font-bold mb-4 px-4 py-2 rounded-lg'>
         You cand find us here!
       </h2>
-      <div className='w-300 h-150 rounded-2xl border-4 border-green-500 p-2 shadow-xl bg-white'>
+      <div className='w-full md:h-150 h-100 rounded-2xl border-4 border-green-500 p-2 shadow-xl bg-white'>
         <MapContainer
           center={[50.4501, 30.5234]}
           zoom={10}

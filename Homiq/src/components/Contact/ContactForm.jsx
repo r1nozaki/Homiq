@@ -54,7 +54,7 @@ const ContactForm = ({ setError, setNotification }) => {
       }}
     >
       {({ touched, errors }) => (
-        <Form className='w-90  bg-black/40 backdrop-blur-md text-white p-8 rounded-lg shadow-lg'>
+        <Form className='w-full md:w-90  bg-black/40 backdrop-blur-md text-white p-8 rounded-lg shadow-lg'>
           <label htmlFor='name'>Your Name</label>
           <Field
             type='text'
@@ -100,7 +100,7 @@ const ContactForm = ({ setError, setNotification }) => {
           />
           <ErrorMessageFormik component='div' name='message' className='text-red-500 ' />
           <button
-            type='sumbit'
+            type='submit'
             className='w-full bg-green-400 hover:bg-green-500 h-12 rounded-lg font-medium hover:cursor-pointer'
             disabled={isSending}
           >

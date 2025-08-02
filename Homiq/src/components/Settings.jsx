@@ -50,9 +50,9 @@ const Settings = () => {
 
   return (
     <>
-      <div className='pt-3 min-h-screen flex items-center justify-center '>
-        <div className='flex w-full max-w-2xl bg-[#f5f5f5] shadow-lg rounded-lg'>
-          <div className='w-1/3 flex flex-col bg-green-100 items-center p-5 gap-3 border-r'>
+      <div className='pt-3 min-h-screen flex  items-center justify-center '>
+        <div className='flex flex-col w-full max-w-2xl bg-[#f5f5f5] shadow-lg rounded-lg'>
+          <div className='w-full md:w-1/3 flex flex-col bg-green-100 items-center p-5 gap-3 border-r'>
             <h2 className='font-medium text-2xl'>Menu</h2>
             <Link
               to='/home'
@@ -79,7 +79,7 @@ const Settings = () => {
               Property
             </Link>
           </div>
-          <div className='w-2/3 flex flex-col items-center mt-5 p-6 gap-4'>
+          <div className='w-full md:w-2/3 flex flex-col items-center mt-5 p-6 gap-4'>
             <div className='flex gap-5 items-center'>
               <FaCogs size={40} />
               <h2 className='text-4xl font-bold'>Settings</h2>

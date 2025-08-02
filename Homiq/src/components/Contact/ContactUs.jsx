@@ -23,14 +23,14 @@ const ContactUs = () => {
       >
         <div>
           <h1 className='text-white font-bold text-5xl text-center'>Get in Touch</h1>
-          <p className='text-white text-lg w-130 mt-4'>
+          <p className='text-white text-lg w-full p-2 md:w-130 mt-4'>
             We`d love to hear from you. Whether you have a question about properties,
             prices, or anything else - our team is ready to answer all your questions
           </p>
         </div>
-        <div className='flex mt-6 gap-5'>
+        <div className='flex flex-col md:flex-row mt-10 gap-8'>
           <ContactForm setNotification={setNotification} setError={setError} />
-          <div className='w-70 flex flex-col gap-3'>
+          <div className='w-full md:w-70 flex flex-col gap-5 items-center md:items-baseline'>
             <div className='flex gap-5 text-white items-center text-lg'>
               <FaPhoneAlt className='text-green-400' size={20} /> +380 67 123 45 67
             </div>
