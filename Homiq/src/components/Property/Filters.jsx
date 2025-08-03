@@ -1,5 +1,6 @@
 import useIsDesktop from '../../hooks/useIsDesktop';
 import { useTheme } from '../../context/ThemeContext';
+import { IoIosClose } from 'react-icons/io';
 
 const roomOptions = ['1', '2', '3', '4+'];
 
@@ -43,7 +44,11 @@ const Filters = ({ type, filters, onChange, onApply, onClear, openFilter }) => {
           }`}
         >
           <h2 className='font-semibold text-green-500 text-2xl mb-4'>Filters</h2>
-
+          {openFilter ? (
+            <button className='absolute top-1 right-1'>
+              <IoIosClose />
+            </button>
+          ) : null}
           <div className='space-y-4'>
             <div>
               <label className='block text-lg mb-1'>Price</label>
