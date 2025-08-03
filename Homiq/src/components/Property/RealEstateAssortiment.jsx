@@ -121,6 +121,7 @@ const RealEstateAssortiment = () => {
           type={type}
           filters={draftFilters}
           openFilter={openFilter}
+          setOpenFilter={setOpenFilter}
           onChange={setDraftFilters}
           onApply={() => {
             setFilters(draftFilters);

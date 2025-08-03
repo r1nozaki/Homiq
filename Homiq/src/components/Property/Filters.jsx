@@ -4,7 +4,15 @@ import { IoIosClose } from 'react-icons/io';
 
 const roomOptions = ['1', '2', '3', '4+'];
 
-const Filters = ({ type, filters, onChange, onApply, onClear, openFilter }) => {
+const Filters = ({
+  type,
+  filters,
+  onChange,
+  onApply,
+  onClear,
+  openFilter,
+  setOpenFilter,
+}) => {
   const isDesktop = useIsDesktop();
   const { darkMode } = useTheme();
   if (!type) return null;
@@ -45,7 +53,10 @@ const Filters = ({ type, filters, onChange, onApply, onClear, openFilter }) => {
         >
           <h2 className='font-semibold text-green-500 text-2xl mb-4'>Filters</h2>
           {openFilter ? (
-            <button className='absolute top-1 right-1'>
+            <button
+              onClick={() => setOpenFilter(!openFilter)}
+              className='absolute top-1 right-1 '
+            >
               <IoIosClose
                 className={`${darkMode ? 'text-white' : 'text-black'}`}
                 size={35}
