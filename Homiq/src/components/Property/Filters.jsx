@@ -38,7 +38,7 @@ const Filters = ({ type, filters, onChange, onApply, onClear, openFilter }) => {
     <>
       {(openFilter || isDesktop) && (
         <div
-          className={`md:relative md:top-0 fixed top-10 right-0 z-50 md:block md:w-1/4 rounded-2xl shadow-2xl md:h-300 mx-2 mt-4 p-5 ${
+          className={`md:relative md:top-0 fixed top-10 left-1/2 -translate-x-1/2 z-50 md:block md:w-1/4 rounded-2xl shadow-2xl md:h-300 mx-2 mt-4 p-5 ${
             darkMode ? 'bg-gray-800' : 'bg-white'
           }`}
         >

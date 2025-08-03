@@ -23,7 +23,7 @@ const ReviewsSections = () => {
   };
 
   return (
-    <section className='w-full min-h-screen md:px-15 px-5 pt-10 relative'>
+    <section className='w-full min-h-screen md:px-15 pt-10 relative'>
       <h1 className='text-6xl font-bold text-green-500 mb-2 text-center'>Reviews</h1>
       <p className='text-center text-2xl font-medium mb-8'>What our clients say</p>
 
