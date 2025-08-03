@@ -36,9 +36,11 @@ const Favorite = () => {
 
   if (favorite.length === 0) {
     return (
-      <div className={`text-center text-2xl mt-10 min-h-screen transition-colors duration-300 ${
-        darkMode ? 'text-gray-300' : 'text-[#1e3a1e]'
-      }`}>
+      <div
+        className={`text-center text-2xl mt-10 min-h-screen transition-colors duration-300 ${
+          darkMode ? 'text-gray-300' : 'text-[#1e3a1e]'
+        }`}
+      >
         You have no saved ads.
       </div>
     );
@@ -46,7 +48,7 @@ const Favorite = () => {
 
   return (
     <div className='pt-3 min-h-screen'>
-      <div className='w-full sm:px-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-10 md:gap-10 sm:gap-5'>
+      <div className='w-full sm:px-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:px-10 pl-5 md:gap-10 sm:gap-5'>
         <AnimatePresence>
           {favorite.map(item => {
             const motionKey = `${item.type}-${item.id}`;

@@ -33,7 +33,7 @@ const Feedback = () => {
 
   return (
     <div
-      className={`w-full md:px-15 px-3 pt-30 transition-colors duration-300 ${
+      className={`w-full md:px-15 px-2 pt-30 transition-colors duration-300 ${
         darkMode ? 'bg-gray-900' : 'bg-white'
       }`}
     >
