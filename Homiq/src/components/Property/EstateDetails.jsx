@@ -21,7 +21,7 @@ import ErrorMessage from '../ErrorMessage';
 import Notification from '../Notification';
 import SaleData from '../../data/SaleRealEstateData';
 import RentData from '../../data/RentRealEstateData';
-import bankid from '../../assets/bankid.png';
+import Bankid from '../../assets/bankid.png';
 
 const EstateDetails = () => {
   const { id, type } = useParams();
@@ -179,7 +179,7 @@ const EstateDetails = () => {
 
           <div className='flex items-center'>
             <span>Verified person</span>
-            <img src={bankid} alt='Verified person' className='w-20 h-10' />
+            <img src={Bankid} alt='Verified person' className='w-20 h-10' />
           </div>
 
           <a
