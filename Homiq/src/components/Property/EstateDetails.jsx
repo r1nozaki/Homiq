@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { toggleFavorite, isInFavorites } from '../../utils/estateFavoriteUtils';
 import { Title, Meta } from 'react-head';
-
+import { useTheme } from '../../context/ThemeContext';
 import ImageSlider from '../ImageSlider';
 import {
   FaShareAlt,
@@ -25,7 +25,7 @@ import bankid from '../../assets/bankid.png';
 
 const EstateDetails = () => {
   const { id, type } = useParams();
-
+  const { darkMode } = useTheme();
   const data = type === 'sale' ? SaleData : RentData;
   const estate = data.find(item => String(item.id) === id);
 
@@ -134,11 +134,16 @@ const EstateDetails = () => {
             <FaArrowLeftLong size={24} /> Back to list
           </Link>
         </div>
-        <div className='w-full md:w-96 h-65 rounded-lg sticky top-4 bg-gray-100 p-5 my-10'>
+
+        <div
+          className={`w-full  md:w-96 h-65 rounded-lg sticky top-4 ${
+            darkMode ? 'bg-gray-800' : 'bg-gray-100 '
+          } p-5 my-10`}
+        >
           <div className='flex items-center justify-between'>
             <div>
               <span className='text-2xl font-bold mr-3'>${price}</span>
-              <span className='text-ssize={20}m text-gray-700 '>
+              <span className={`text-sm  ${darkMode ? 'text-white' : 'text-gray-700'}`}>
                 {pricePerSquare} $/м²
               </span>
             </div>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
+import { useTheme } from '../../context/ThemeContext';
 import { Title, Meta } from 'react-head';
 import { HashLoader } from 'react-spinners';
 
@@ -10,7 +11,6 @@ import RentData from '../../data/RentRealEstateData';
 import SaleData from '../../data/SaleRealEstateData';
 import applyFilters from '../../utils/filtersUtils';
 import Notification from '../Notification';
-
 const RealEstateAssortiment = () => {
   const emptyFilters = {
     price: { min: '', max: '' },
@@ -26,6 +26,7 @@ const RealEstateAssortiment = () => {
   const [draftFilters, setDraftFilters] = useState(emptyFilters);
   const [filters, setFilters] = useState(emptyFilters);
   const [openFilter, setOpenFilter] = useState(false);
+  const { darkMode } = useTheme();
 
   useEffect(() => {
     const savedType = localStorage.getItem('estateType');
@@ -82,7 +83,11 @@ const RealEstateAssortiment = () => {
       <Title>Property</Title>
       <Meta name='description' content='Real estate property' />
 
-      <div className='bg-gradient-to-b from-[#F5FFF5] to-[#E8F5E9] flex flex-col justify-center gap-8 h-auto p-8'>
+      <div
+        className={`${
+          darkMode ? 'bg-gray-900' : 'bg-gradient-to-b from-[#F5FFF5] to-[#E8F5E9]'
+        } flex flex-col justify-center gap-8 h-auto p-8`}
+      >
         <TwoIntroCard handleSetType={handleSetType} />
         <button
           onClick={() => setOpenFilter(!openFilter)}
@@ -92,7 +97,11 @@ const RealEstateAssortiment = () => {
         </button>
       </div>
 
-      <div className='relative bg-gradient-to-b from-[#E8F5E9] to-[#F5FFF5] w-full md:flex md:gap-3 md:pl-0 pl-10'>
+      <div
+        className={`relative ${
+          darkMode ? 'bg-gray-900' : 'bg-gradient-to-b from-[#E8F5E9] to-[#F5FFF5]'
+        }  w-full md:flex md:gap-3 md:pl-0 pl-10`}
+      >
         {openFilter && (
           <div
             className='fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden'

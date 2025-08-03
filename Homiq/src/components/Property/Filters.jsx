@@ -1,9 +1,11 @@
 import useIsDesktop from '../../hooks/useIsDesktop';
+import { useTheme } from '../../context/ThemeContext';
 
 const roomOptions = ['1', '2', '3', '4+'];
 
 const Filters = ({ type, filters, onChange, onApply, onClear, openFilter }) => {
   const isDesktop = useIsDesktop();
+  const { darkMode } = useTheme();
   if (!type) return null;
 
   const handleChange = (field, value) => {
@@ -35,7 +37,11 @@ const Filters = ({ type, filters, onChange, onApply, onClear, openFilter }) => {
   return (
     <>
       {(openFilter || isDesktop) && (
-        <div className='md:relative md:right-0 md:top-0 fixed top-5 right-5 z-50 md:block md:w-1/4 rounded-2xl shadow-2xl md:h-300 mx-2 mt-4 p-5 bg-white'>
+        <div
+          className={`md:relative md:right-0 md:top-0 fixed top-5 right-5 z-50 md:block md:w-1/4 rounded-2xl shadow-2xl md:h-300 mx-2 mt-4 p-5 ${
+            darkMode ? 'bg-gray-800' : 'bg-white'
+          }`}
+        >
           <h2 className='font-semibold text-green-500 text-2xl'>Filters</h2>
 
           <div className='mt-3'>
@@ -136,7 +142,9 @@ const Filters = ({ type, filters, onChange, onApply, onClear, openFilter }) => {
             <div className='mt-10 ml-8 flex gap-4'>
               <button
                 onClick={onClear}
-                className='text-black border border-gray-400 rounded-lg w-30 h-10 cursor-pointer hover:bg-gray-200'
+                className={`${
+                  darkMode ? 'text-white' : 'text-black'
+                } border border-gray-400 rounded-lg w-30 h-10 cursor-pointer hover:bg-gray-200 hover:text-black`}
               >
                 Clear
               </button>

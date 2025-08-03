@@ -1,8 +1,11 @@
 import { motion, AnimatePresence } from 'motion/react';
 
 import { BiSolidError } from 'react-icons/bi';
+import { useTheme } from '../context/ThemeContext';
 
 const ErrorMessage = ({ error, text }) => {
+  const { darkMode } = useTheme();
+  
   return (
     <AnimatePresence>
       {error && (
@@ -11,7 +14,9 @@ const ErrorMessage = ({ error, text }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.4 }}
-          className='md:fixed md:bottom-5 md:right-0 md:transform md:-translate-x-1/2  w-45 p-3 rounded-lg bg-red-500 text-black shadow-lg'
+          className={`md:fixed md:bottom-5 md:right-0 md:transform md:-translate-x-1/2 w-45 p-3 rounded-lg shadow-lg transition-colors duration-300 ${
+            darkMode ? 'bg-red-700' : 'bg-red-500'
+          }`}
         >
           <p className='flex justify-center items-center text-white gap-1'>
             <BiSolidError /> {text}

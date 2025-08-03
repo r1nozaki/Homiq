@@ -2,7 +2,7 @@ import { Title, Meta } from 'react-head';
 import ScrollToTopBtn from '../ScrollToTopBtn';
 import PersonTeamCard from './PersontTeamCard';
 import MapComponent from './MapComponent';
-
+import { useTheme } from '../../context/ThemeContext';
 import {
   FaPhoneAlt,
   FaRegHeart,
@@ -17,6 +17,8 @@ import RealtorTeam from '../../assets/RealtorTeam.jpg';
 import { Person1, Person2, Person3, Person4 } from '../../assets/avatars/avatars';
 
 const AboutUs = () => {
+  const { darkMode } = useTheme();
+
   const PersonsTeam = [
     {
       ava: Person1,
@@ -49,7 +51,9 @@ const AboutUs = () => {
       <Title>About Homiq</Title>
       <Meta name='description' content='Page about Homiq' />
 
-      <section className='px-5 md:px-20 pt-20 bg-[#F5F5F5]'>
+      <section
+        className={`px-5 md:px-20 pt-20 ${darkMode ? 'bg-gray-900' : 'bg-[#F5F5F5]'}`}
+      >
         <div className='flex flex-col md:flex-row gap-10 items-center'>
           <div className='md:w-1/2 w-full text-center md:text-left'>
             <h1 className='font-bold text-5xl md:text-7xl'>Who we are</h1>
@@ -147,7 +151,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <section className='my-5 px-5 md:px-20'>
+      <section className='py-5 px-5 md:px-20'>
         <MapComponent />
       </section>
 

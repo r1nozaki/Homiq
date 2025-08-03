@@ -7,6 +7,7 @@ import {
   FaMapMarkerAlt,
   FaClock,
 } from 'react-icons/fa';
+import { useTheme } from '../../context/ThemeContext';
 
 const advantages = [
   {
@@ -48,12 +49,20 @@ const advantages = [
 ];
 
 const OurAdvantage = () => {
+  const { darkMode } = useTheme();
+  
   return (
-    <div className='w-full bg-white md:pl-15 pl-5'>
-      <span className='uppercase w-30 h-10 bg-[#F5F5F5] text-[#69B99D] text-center text-sm pt-3 inline-block mt-13 font-semibold'>
+    <div className={`w-full md:pl-15 pl-5 transition-colors duration-300 ${
+      darkMode ? 'bg-gray-900' : 'bg-white'
+    }`}>
+      <span className={`uppercase w-30 h-10 text-center text-sm pt-3 inline-block mt-13 font-semibold transition-colors duration-300 ${
+        darkMode ? 'bg-gray-800 text-green-400' : 'bg-[#F5F5F5] text-[#69B99D]'
+      }`}>
         Our Advantage
       </span>
-      <h2 className='md:text-5xl text-2xl font-bold md:w-100 w-50 mt-4 text-[#054457]'>
+      <h2 className={`md:text-5xl text-2xl font-bold md:w-100 w-50 mt-4 transition-colors duration-300 ${
+        darkMode ? 'text-white' : 'text-[#054457]'
+      }`}>
         Giving you peace of mind
       </h2>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-12 mb-20'>

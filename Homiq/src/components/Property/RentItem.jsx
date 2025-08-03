@@ -4,6 +4,7 @@ import { toggleFavorite, isInFavorites } from '../../utils/estateFavoriteUtils';
 
 import { FaHeart, FaRegHeart, FaBed, FaExpand, FaPaintRoller } from 'react-icons/fa6';
 import { MdOutlineStairs } from 'react-icons/md';
+import { useTheme } from '../../context/ThemeContext';
 
 const RentItem = ({
   id,
@@ -23,6 +24,7 @@ const RentItem = ({
   showNotification,
 }) => {
   const [favourite, setFavourite] = useState(false);
+  const { darkMode } = useTheme();
 
   const estate = useMemo(
     () => ({
@@ -77,7 +79,11 @@ const RentItem = ({
   };
 
   return (
-    <div className='w-87 h-165 border border-[#4CAF50] flex flex-col rounded-lg p-2 bg-white'>
+    <div className={`w-87 h-165 border flex flex-col rounded-lg p-2 transition-colors duration-300 ${
+      darkMode 
+        ? 'border-green-400 bg-gray-800' 
+        : 'border-[#4CAF50] bg-white'
+    }`}>
       <div className='relative'>
         {favourite ? (
           <FaHeart
@@ -87,7 +93,9 @@ const RentItem = ({
           />
         ) : (
           <FaRegHeart
-            className='absolute top-3 right-3 text-black cursor-pointer'
+            className={`absolute top-3 right-3 cursor-pointer transition-colors duration-300 ${
+              darkMode ? 'text-white' : 'text-black'
+            }`}
             onClick={handleFavourite}
             size={20}
           />
@@ -96,32 +104,54 @@ const RentItem = ({
       </div>
       <div>
         <div className='flex gap-2 items-center mt-3'>
-          <span className='text-xl text-black font-bold'>$ {price}</span>
+          <span className={`text-xl font-bold transition-colors duration-300 ${
+            darkMode ? 'text-white' : 'text-black'
+          }`}>$ {price}</span>
         </div>
         <div className='mt-1'>
-          <span className='text-lg font-medium'>{address}</span>
+          <span className={`text-lg font-medium transition-colors duration-300 ${
+            darkMode ? 'text-white' : 'text-black'
+          }`}>{address}</span>
         </div>
         <div className='mt-1 mb-3 h-18'>
-          <p>{description.slice(0, 101)}...</p>
+          <p className={`transition-colors duration-300 ${
+            darkMode ? 'text-gray-300' : 'text-black'
+          }`}>{description.slice(0, 101)}...</p>
         </div>
         <div className='grid grid-cols-2 gap-2 items-center'>
           <div className='flex gap-2 items-center'>
-            <FaBed size={20} />
-            <span className='text-sm'>{countRooms}</span>
+            <FaBed size={20} className={`transition-colors duration-300 ${
+              darkMode ? 'text-gray-300' : 'text-black'
+            }`} />
+            <span className={`text-sm transition-colors duration-300 ${
+              darkMode ? 'text-gray-300' : 'text-black'
+            }`}>{countRooms}</span>
           </div>
           <div className='flex gap-2 items-center'>
-            <FaPaintRoller size={20} />
-            <span className='text-sm'>
+            <FaPaintRoller size={20} className={`transition-colors duration-300 ${
+              darkMode ? 'text-gray-300' : 'text-black'
+            }`} />
+            <span className={`text-sm transition-colors duration-300 ${
+              darkMode ? 'text-gray-300' : 'text-black'
+            }`}>
               {isRenovation ? 'With Renovation' : 'Without Renovation'}
             </span>
           </div>
           <div className='flex gap-2 items-center'>
-            <FaExpand size={20} />
-            <span className='text-sm'>{area} m²</span>
+            <FaExpand size={20} className={`transition-colors duration-300 ${
+              darkMode ? 'text-gray-300' : 'text-black'
+            }`} />
+            <span className={`text-sm transition-colors duration-300 ${
+              darkMode ? 'text-gray-300' : 'text-black'
+            }`}>{area} m²</span>
           </div>
           <div className='flex gap-2 items-center'>
-            <MdOutlineStairs size={25} />
-            <span className='text-sm'>
+            <MdOutlineStairs size={25} className={`transition-colors duration-300 ${
+              darkMode ? 'text-gray-300' : 'text-black'
+            }`} />
+            <span className={`text-sm transition-colors duration-300 ${
+              darkMode ? 'text-gray-300' : 'text-black'
+            }`}>
               Floor {currentFloor} of {totalFloor}
             </span>
           </div>

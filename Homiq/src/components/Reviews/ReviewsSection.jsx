@@ -41,7 +41,7 @@ const ReviewsSections = () => {
         ))}
       </div>
 
-      <div className='mx-auto w-55 h-10 my-16'>
+      <div className='mx-auto w-55 h-10 py-16'>
         <button
           onClick={() => setOpenModal(true)}
           className='w-55 h-10 bg-green-400 text-white text-lg rounded-lg transition duration-300 ease-in-out transform hover:scale-105 hover:bg-green-500 hover:cursor-pointer'

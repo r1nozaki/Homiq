@@ -4,11 +4,13 @@ import { auth } from '../firebaseConfig';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaBars } from 'react-icons/fa';
 import { FaHeart, FaGear } from 'react-icons/fa6';
+import { useTheme } from '../context/ThemeContext';
 
 const Header = ({ isFooterVisible }) => {
   const location = useLocation();
   const [userEmail, setUserEmail] = useState('');
   const [openBurger, setOpenBurger] = useState(false);
+  const { darkMode } = useTheme();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -33,7 +35,9 @@ const Header = ({ isFooterVisible }) => {
       initial={{ y: 0 }}
       animate={{ y: isFooterVisible ? -100 : 0 }}
       transition={{ duration: 0.3 }}
-      className='fixed top-0 left-0 w-full flex items-center justify-between px-4 md:px-10 py-4 bg-[#F5F5F5] z-50'
+      className={`fixed top-0 left-0 w-full flex items-center justify-between px-4 md:px-10 py-4 z-50 transition-colors duration-300 ${
+        darkMode ? 'bg-gray-800' : 'bg-[#F5F5F5]'
+      }`}
     >
       <Link to='/home' className='uppercase text-green-500 font-medium text-2xl'>
         Homiq
@@ -53,7 +57,9 @@ const Header = ({ isFooterVisible }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className='absolute top-16 left-0 w-full flex flex-col items-center gap-6 bg-white p-4 shadow-lg z-40 md:hidden'
+            className={`absolute top-16 left-0 w-full flex flex-col items-center gap-6 p-4 shadow-lg z-40 md:hidden transition-colors duration-300 ${
+              darkMode ? 'bg-gray-700' : 'bg-white'
+            }`}
           >
             {navItems.map(({ to, label }) => (
               <NavLink key={to} to={to}>
@@ -61,7 +67,7 @@ const Header = ({ isFooterVisible }) => {
                   <div className='flex flex-col items-center'>
                     <span
                       className={`text-lg font-semibold transition-colors ${
-                        isActive ? 'text-green-500' : 'text-black hover:text-green-400'
+                        isActive ? 'text-green-500' : `${darkMode ? 'text-white' : 'text-black'} hover:text-green-400`
                       }`}
                     >
                       {label}
@@ -75,10 +81,10 @@ const Header = ({ isFooterVisible }) => {
             ))}
 
             <div className='flex items-center gap-10 mt-4'>
-              <Link to='/favorite' className='text-black hover:text-green-400'>
+              <Link to='/favorite' className={`${darkMode ? 'text-white' : 'text-black'} hover:text-green-400`}>
                 <FaHeart size={22} />
               </Link>
-              <Link to='/settings' className='text-black hover:text-green-400'>
+              <Link to='/settings' className={`${darkMode ? 'text-white' : 'text-black'} hover:text-green-400`}>
                 <FaGear size={22} />
               </Link>
             </div>
@@ -93,7 +99,7 @@ const Header = ({ isFooterVisible }) => {
               <div className='flex flex-col items-center'>
                 <span
                   className={`text-lg font-semibold transition-colors ${
-                    isActive ? 'text-green-500' : 'text-black hover:text-green-400'
+                    isActive ? 'text-green-500' : `${darkMode ? 'text-white' : 'text-black'} hover:text-green-400`
                   }`}
                 >
                   {label}
@@ -108,13 +114,15 @@ const Header = ({ isFooterVisible }) => {
       </nav>
 
       <div className='hidden md:flex items-center gap-6'>
-        <Link to='/favorite' className='text-black hover:text-green-400'>
+        <Link to='/favorite' className={`${darkMode ? 'text-white' : 'text-black'} hover:text-green-400`}>
           <FaHeart size={22} />
         </Link>
-        <Link to='/settings' className='text-black hover:text-green-400'>
+        <Link to='/settings' className={`${darkMode ? 'text-white' : 'text-black'} hover:text-green-400`}>
           <FaGear size={22} />
         </Link>
-        <div className='w-10 h-10 flex items-center justify-center bg-green-400 text-black rounded-full text-lg font-bold'>
+        <div className={`w-10 h-10 flex items-center justify-center rounded-full text-lg font-bold transition-colors duration-300 ${
+          darkMode ? 'bg-green-500 text-white' : 'bg-green-400 text-black'
+        }`}>
           {userEmail ? userEmail.charAt(0).toUpperCase() : 'NA'}
         </div>
       </div>

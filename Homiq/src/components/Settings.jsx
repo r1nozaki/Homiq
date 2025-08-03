@@ -5,12 +5,13 @@ import { auth } from '../firebaseConfig';
 import { signOut } from 'firebase/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import ErrorMessage from './ErrorMessage';
+import { useTheme } from '../context/ThemeContext';
 
 const Settings = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState('');
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode, toggleDarkMode } = useTheme();
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const Settings = () => {
         }
       }, 1000);
     });
-    return () => unsubscribe;
+    return () => unsubscribe();
   }, [navigate]);
 
   const handleLogout = async () => {
@@ -41,7 +42,9 @@ const Settings = () => {
 
   if (loading) {
     return (
-      <div className='flex items-center justify-center min-h-screen'>
+      <div className={`flex items-center justify-center min-h-screen transition-colors duration-300 ${
+        darkMode ? 'bg-gray-900' : 'bg-white'
+      }`}>
         <FaCog className='text-green-500 text-9xl animate-spin mb-30 -mr-5' />
         <FaCog className='text-green-500 text-9xl animate-spin' />
       </div>
@@ -50,48 +53,82 @@ const Settings = () => {
 
   return (
     <>
-      <div className='pt-3 min-h-screen flex  items-center justify-center '>
-        <div className='flex flex-col w-full max-w-2xl bg-[#f5f5f5] shadow-lg rounded-lg'>
-          <div className='w-full md:w-1/3 flex flex-col bg-green-100 items-center p-5 gap-3 border-r'>
-            <h2 className='font-medium text-2xl'>Menu</h2>
+      <div className={`pt-3 min-h-screen flex items-center justify-center transition-colors duration-300 ${
+        darkMode ? 'bg-gray-900' : 'bg-white'
+      }`}>
+        <div className={`flex flex-col md:flex-row w-full max-w-2xl shadow-lg rounded-lg transition-colors duration-300 ${
+          darkMode ? 'bg-gray-800' : 'bg-[#f5f5f5]'
+        }`}>
+          <div className={`w-full md:w-1/3 flex flex-col items-center p-5 gap-3 border-r transition-colors duration-300 ${
+            darkMode ? 'bg-green-900 border-gray-600' : 'bg-green-100'
+          }`}>
+            <h2 className={`font-medium text-2xl transition-colors duration-300 ${
+              darkMode ? 'text-white' : 'text-black'
+            }`}>Menu</h2>
             <Link
               to='/home'
-              className='border-2 border-black text-black w-full rounded-lg p-2 text-center bg-green-300 hover:bg-green-400'
+              className={`border-2 w-full rounded-lg p-2 text-center transition-colors duration-300 ${
+                darkMode 
+                  ? 'border-white text-white bg-green-700 hover:bg-green-600' 
+                  : 'border-black text-black bg-green-300 hover:bg-green-400'
+              }`}
             >
               Home
             </Link>
             <Link
               to='/privacy'
-              className='border-2 border-black text-black w-full rounded-lg p-2 text-center bg-green-300 hover:bg-green-400'
+              className={`border-2 w-full rounded-lg p-2 text-center transition-colors duration-300 ${
+                darkMode 
+                  ? 'border-white text-white bg-green-700 hover:bg-green-600' 
+                  : 'border-black text-black bg-green-300 hover:bg-green-400'
+              }`}
             >
               Privacy & Policy
             </Link>
             <Link
               to='/help'
-              className='border-2 border-black text-black w-full rounded-lg p-2 text-center bg-green-300 hover:bg-green-400'
+              className={`border-2 w-full rounded-lg p-2 text-center transition-colors duration-300 ${
+                darkMode 
+                  ? 'border-white text-white bg-green-700 hover:bg-green-600' 
+                  : 'border-black text-black bg-green-300 hover:bg-green-400'
+              }`}
             >
               Help
             </Link>
             <Link
               to='/property'
-              className='border-2 border-black text-black w-full rounded-lg p-2 text-center bg-green-300 hover:bg-green-400'
+              className={`border-2 w-full rounded-lg p-2 text-center transition-colors duration-300 ${
+                darkMode 
+                  ? 'border-white text-white bg-green-700 hover:bg-green-600' 
+                  : 'border-black text-black bg-green-300 hover:bg-green-400'
+              }`}
             >
               Property
             </Link>
           </div>
           <div className='w-full md:w-2/3 flex flex-col items-center mt-5 p-6 gap-4'>
             <div className='flex gap-5 items-center'>
-              <FaCogs size={40} />
-              <h2 className='text-4xl font-bold'>Settings</h2>
+              <FaCogs size={40} className={darkMode ? 'text-green-400' : 'text-green-600'} />
+              <h2 className={`text-4xl font-bold transition-colors duration-300 ${
+                darkMode ? 'text-white' : 'text-black'
+              }`}>Settings</h2>
             </div>
-            <div className='flex flex-col gap-2 border-b w-full items-center  pb-3'>
-              <span className='text-xl font-semibold'>Email:</span>
-              <span className='text-lg font-medium'>{email}</span>
+            <div className={`flex flex-col gap-2 border-b w-full items-center pb-3 transition-colors duration-300 ${
+              darkMode ? 'border-gray-600' : 'border-gray-300'
+            }`}>
+              <span className={`text-xl font-semibold transition-colors duration-300 ${
+                darkMode ? 'text-white' : 'text-black'
+              }`}>Email:</span>
+              <span className={`text-lg font-medium transition-colors duration-300 ${
+                darkMode ? 'text-gray-300' : 'text-gray-700'
+              }`}>{email}</span>
             </div>
             <div className='flex justify-between items-center w-full'>
-              <span className='text-lg '>Dark mode</span>
+              <span className={`text-lg transition-colors duration-300 ${
+                darkMode ? 'text-white' : 'text-black'
+              }`}>Dark mode</span>
               <button
-                onClick={() => setDarkMode(!darkMode)}
+                onClick={toggleDarkMode}
                 className={`w-12 h-6 rounded-full relative transition-colors duration-300 hover:cursor-pointer ${
                   darkMode ? 'bg-green-400' : 'bg-gray-700'
                 }`}

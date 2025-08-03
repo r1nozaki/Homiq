@@ -5,10 +5,12 @@ import { getFavorites } from '../utils/estateFavoriteUtils';
 import { FaHeart } from 'react-icons/fa';
 import SaleItem from './Property/SaleItem';
 import RentItem from './Property/RentItem';
+import { useTheme } from '../context/ThemeContext';
 
 const Favorite = () => {
   const [favorite, setFavorite] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { darkMode } = useTheme();
 
   useEffect(() => {
     setLoading(true);
@@ -34,7 +36,9 @@ const Favorite = () => {
 
   if (favorite.length === 0) {
     return (
-      <div className='text-center text-[#1e3a1e] text-2xl mt-10  min-h-screen'>
+      <div className={`text-center text-2xl mt-10 min-h-screen transition-colors duration-300 ${
+        darkMode ? 'text-gray-300' : 'text-[#1e3a1e]'
+      }`}>
         You have no saved ads.
       </div>
     );

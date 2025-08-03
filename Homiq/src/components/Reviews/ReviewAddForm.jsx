@@ -4,9 +4,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 import * as Yup from 'yup';
 import { ImageIcon } from 'lucide-react';
 import { IoIosClose } from 'react-icons/io';
+import { useTheme } from '../../context/ThemeContext';
 
 const ReviewAddForm = ({ setOpenModal, addReview }) => {
   const [fileName, setFileName] = useState('No file chosen');
+  const { darkMode } = useTheme();
 
   const handleFileChange = (event, setFieldValue) => {
     const file = event.currentTarget.files[0];
@@ -48,12 +50,19 @@ const ReviewAddForm = ({ setOpenModal, addReview }) => {
           }}
         >
           {({ setFieldValue, touched, errors }) => (
-            <Form className='w-100 max-h-200  bg-white border-2 border-green-400 text-white p-5 rounded-lg shadow-lg relative'>
+            <Form
+              className={`w-100 max-h-200   border-2 border-green-400 text-white p-5 rounded-lg shadow-lg relative ${
+                darkMode ? 'bg-gray-900' : 'bg-white'
+              }`}
+            >
               <button
                 onClick={() => setOpenModal(false)}
                 className='absolute top-0 right-0 hover:cursor-pointer'
               >
-                <IoIosClose className='text-black' size={35} />
+                <IoIosClose
+                  className={`${darkMode ? 'text-white' : 'text-black'}`}
+                  size={35}
+                />
               </button>
               <div className='flex flex-col'>
                 <label htmlFor='ava' className='text-green-600 font-semibold'>
@@ -67,7 +76,9 @@ const ReviewAddForm = ({ setOpenModal, addReview }) => {
                     <ImageIcon className='w-5 h-5' />
                     Upload Image
                   </label>
-                  <span className='text-black text-sm'>{fileName}</span>
+                  <span className={` text-sm ${darkMode ? 'text-white' : 'text-black'}`}>
+                    {fileName}
+                  </span>
                 </div>
                 <input
                   id='ava'
@@ -88,9 +99,9 @@ const ReviewAddForm = ({ setOpenModal, addReview }) => {
                   name='name'
                   id='name'
                   placeholder='Enter your name'
-                  className={`w-full mb-4 mt-1 p-2 rounded-lg border border-green-300 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-400 text-black ${
-                    touched.name && errors.name ? 'border-red-500' : 'border-black'
-                  }`}
+                  className={`w-full mb-4 mt-1 p-2 rounded-lg border border-green-300 placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-400 ${
+                    darkMode ? 'text-white' : 'text-black'
+                  } ${touched.name && errors.name ? 'border-red-500' : 'border-black'}`}
                 />
                 <FormikErrorMessage
                   component='div'
@@ -107,9 +118,9 @@ const ReviewAddForm = ({ setOpenModal, addReview }) => {
                   name='surname'
                   id='surname'
                   placeholder='Enter your surname'
-                  className={`w-full mb-4 mt-1 p-2 rounded-lg border border-green-300 placeholder-green-400 focus:outline-none focus:ring-1 focus:ring-green-400 text-black ${
-                    touched.name && errors.name ? 'border-red-500' : 'border-black'
-                  }`}
+                  className={`w-full mb-4 mt-1 p-2 rounded-lg border border-green-300 placeholder-green-400 focus:outline-none focus:ring-1 focus:ring-green-400 ${
+                    darkMode ? 'text-white' : 'text-black'
+                  } ${touched.name && errors.name ? 'border-red-500' : 'border-black'}`}
                 />
                 <FormikErrorMessage
                   component='div'
@@ -124,9 +135,9 @@ const ReviewAddForm = ({ setOpenModal, addReview }) => {
                 <Field
                   as='select'
                   name='stars'
-                  className={`w-full mb-4 mt-1 p-2 rounded-lg border border-green-300 placeholder-green-400 focus:outline-none focus:ring-1 focus:ring-green-400 text-black ${
-                    touched.name && errors.name ? 'border-red-500' : 'border-black'
-                  }`}
+                  className={`w-full mb-4 mt-1 p-2 rounded-lg border border-green-300 placeholder-green-400 focus:outline-none focus:ring-1 focus:ring-green-400 ${
+                    darkMode ? 'text-white' : 'text-black'
+                  } ${touched.name && errors.name ? 'border-red-500' : 'border-black'}`}
                 >
                   <option value='star-0'>0</option>
                   <option value='star-0.5'>0.5</option>
@@ -155,9 +166,9 @@ const ReviewAddForm = ({ setOpenModal, addReview }) => {
                   id='review'
                   name='review'
                   placeholder='Enter your review'
-                  className={`w-full mb-2 mt-1 p-2 min-h-25 rounded-lg border border-green-300 placeholder-green-400 focus:outline-none focus:ring-1 focus:ring-green-400 text-black ${
-                    touched.name && errors.name ? 'border-red-500' : 'border-black'
-                  }`}
+                  className={`w-full mb-2 mt-1 p-2 min-h-25 rounded-lg border border-green-300 placeholder-green-400 focus:outline-none focus:ring-1 focus:ring-green-400 ${
+                    darkMode ? 'text-white' : 'text-black'
+                  } ${touched.name && errors.name ? 'border-red-500' : 'border-black'}`}
                 />
                 <FormikErrorMessage
                   component='div'
@@ -177,9 +188,9 @@ const ReviewAddForm = ({ setOpenModal, addReview }) => {
                     const value = e.target.value;
                     setFieldValue('date', value);
                   }}
-                  className={`w-full rounded-lg border border-green-300 placeholder-green-400 focus:outline-none focus:ring-1 focus:ring-green-400 text-black ${
-                    touched.name && errors.name ? 'border-red-500' : 'border-black'
-                  }`}
+                  className={`w-full rounded-lg border border-green-300 placeholder-green-400 focus:outline-none focus:ring-1 focus:ring-green-400 ${
+                    darkMode ? 'text-white' : 'text-black'
+                  } ${touched.name && errors.name ? 'border-red-500' : 'border-black'}`}
                 />
               </div>
 
