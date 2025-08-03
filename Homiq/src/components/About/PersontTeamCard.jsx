@@ -3,7 +3,12 @@ import { FaLinkedinIn } from 'react-icons/fa';
 const PersonTeamCard = ({ ava, name, position, socialNetwork }) => {
   return (
     <div className=' w-70 h-95'>
-      <img src={ava} alt={name} className='rounded-lg object-cover w-70 h-70 ' />
+      <img
+        loading='lazy'
+        src={ava}
+        alt={name}
+        className='rounded-lg object-cover w-70 h-70 '
+      />
 
       <div>
         <h3 className='font-semibold text-2xl mt-2 w-20'>{name}</h3>

@@ -167,6 +167,7 @@ const EstateDetails = () => {
 
           <div className='flex gap-2 mt-2'>
             <img
+              loading='lazy'
               src={Realtor.ava}
               alt={Realtor.name}
               className='w-13 h-13 rounded-full'
@@ -179,7 +180,12 @@ const EstateDetails = () => {
 
           <div className='flex items-center'>
             <span>Verified person</span>
-            <img src={Bankid} alt='Verified person' className='w-20 h-10' />
+            <img
+              loading='lazy'
+              src={Bankid}
+              alt='Verified person'
+              className='w-20 h-10'
+            />
           </div>
 
           <a

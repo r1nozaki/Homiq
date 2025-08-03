@@ -140,7 +140,12 @@ const ReviewCard = ({ ava, name, surname, stars, review, date }) => {
           {ava === null ? (
             `${name.charAt(0)}${surname.charAt(0)}`
           ) : (
-            <img src={ava} alt={name} className='w-12 h-12 rounded-full object-cover' />
+            <img
+              loading='lazy'
+              src={ava}
+              alt={name}
+              className='w-12 h-12 rounded-full object-cover'
+            />
           )}
         </div>
         <div className='flex flex-col text-lg'>

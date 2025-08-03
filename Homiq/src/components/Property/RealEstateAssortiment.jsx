@@ -57,11 +57,19 @@ const RealEstateAssortiment = () => {
   const showContent = loading ? (
     <HashLoader className='block mx-auto my-20' color='#4CAF50' />
   ) : type === null ? (
-    <div className='text-center font-bold text-4xl md:text-7xl mx-auto my-20 w-1/2 text-[#1e3a1e]'>
+    <div
+      className={`text-center font-bold text-4xl md:text-7xl mx-auto my-20 w-1/2 ${
+        darkMode ? 'text-white' : 'text-[#1e3a1e]'
+      }`}
+    >
       Choose from rent or sale above
     </div>
   ) : filteredData.length === 0 ? (
-    <div className='text-center font-bold text-2xl md:text-4xl mx-auto my-20 text-[#1e3a1e]'>
+    <div
+      className={`text-center font-bold text-2xl md:text-4xl mx-auto my-20 ${
+        darkMode ? 'text-white' : 'text-[#1e3a1e]'
+      }`}
+    >
       🏠 Not found matches
     </div>
   ) : type === 'sale' ? (

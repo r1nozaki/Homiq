@@ -38,7 +38,7 @@ const tranquilityData = [
 const TranquilityLayout = () => {
   return (
     <div>
-      <div className='flex gap-10 items-center'>
+      <div className='flex flex-col md:flex-row md:gap-10 gap-6 items-center justify-center flex-wrap'>
         {tranquilityData.map((item, index) => (
           <LifestyleCard
             key={index}
@@ -52,36 +52,42 @@ const TranquilityLayout = () => {
 
       <div className='mt-10'>
         <h2 className='text-left text-3xl font-bold'>Photo Gallery</h2>
-        <div className='shadow-md w-full h-120 mt-5 grid grid-cols-3 gap-4 p-3'>
+        <div className='shadow-md w-full mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-3'>
           <img
+            loading='lazy'
             src={TranqulityGallery1}
             alt='TranqulityGallery1'
-            className='w-full h-50 object-cover rounded-lg'
+            className='w-full h-45 sm:h-50 object-cover rounded-lg'
           />
           <img
+            loading='lazy'
             src={TranqulityGallery2}
             alt='TranqulityGallery2'
-            className='w-full h-50 object-cover rounded-lg'
+            className='w-full h-45 sm:h-50 object-cover rounded-lg'
           />
           <img
+            loading='lazy'
             src={TranqulityGallery3}
             alt='TranqulityGallery3'
-            className='w-full h-50 object-cover rounded-lg'
+            className='w-full h-45 sm:h-50 object-cover rounded-lg'
           />
           <img
+            loading='lazy'
             src={TranqulityGallery4}
             alt='TranqulityGallery4'
-            className='w-full h-50 object-cover rounded-lg'
+            className='w-full h-45 sm:h-50 object-cover rounded-lg'
           />
           <img
+            loading='lazy'
             src={TranqulityGallery5}
             alt='TranqulityGallery5'
-            className='w-full h-50 object-cover rounded-lg'
+            className='w-full h-45 sm:h-50 object-cover rounded-lg'
           />
           <img
+            loading='lazy'
             src={TranqulityGallery6}
             alt='TranqulityGallery6'
-            className='w-full h-50 object-cover rounded-lg'
+            className='w-full h-45 sm:h-50 object-cover rounded-lg'
           />
         </div>
       </div>

@@ -119,15 +119,19 @@ const LifestyleCard = ({ img, title, descr, star }) => {
   };
 
   return (
-    <div className='max-w-sm h-120 shadow-md rounded-lg mt-16'>
+    <div className='w-full sm:w-[300px] h-auto shadow-md rounded-lg mt-8 mx-auto'>
       <div>
-        <img src={img} alt={title} className='w-full h-65 object-cover rounded-lg' />
+        <img
+          src={img}
+          alt={title}
+          className='w-full h-[200px] object-cover rounded-t-lg'
+        />
       </div>
-      <div className='px-6 text-left'>
-        <h4 className='mt-3 text-lg font-semibold'>{title}</h4>
-        <p className='mt-3 h-24'>{descr}</p>
+      <div className='px-4 py-2 text-left'>
+        <h4 className='mt-2 text-lg font-semibold'>{title}</h4>
+        <p className='mt-2 text-sm h-auto'>{descr}</p>
       </div>
-      <div className='flex gap-3 px-6 mt-4'>{renderStars(star)}</div>
+      <div className='flex gap-1 px-4 mt-2 mb-3'>{renderStars(star)}</div>
     </div>
   );
 };

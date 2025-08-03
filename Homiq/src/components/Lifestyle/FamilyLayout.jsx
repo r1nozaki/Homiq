@@ -38,7 +38,7 @@ const fammilyData = [
 const FamilyLayout = () => {
   return (
     <div>
-      <div className='flex gap-10 items-center'>
+      <div className='flex flex-col md:flex-row md:gap-10 gap-6 items-center justify-center flex-wrap'>
         {fammilyData.map((item, index) => (
           <LifestyleCard
             key={index}
@@ -52,36 +52,42 @@ const FamilyLayout = () => {
 
       <div className='mt-10'>
         <h2 className='text-left text-3xl font-bold'>Photo Gallery</h2>
-        <div className='shadow-md w-full h-120 mt-5 grid grid-cols-3 gap-4 p-3'>
+        <div className='shadow-md w-full mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-3'>
           <img
+            loading='lazy'
             src={FamilyGallery1}
             alt='FamilyGallery1'
-            className='w-full h-50 object-cover rounded-lg'
+            className='w-full h-45 sm:h-50 object-cover rounded-lg'
           />
           <img
+            loading='lazy'
             src={FamilyGallery2}
             alt='FamilyGallery2'
-            className='w-full h-50 object-cover rounded-lg'
+            className='w-full h-45 sm:h-50 object-cover rounded-lg'
           />
           <img
+            loading='lazy'
             src={FamilyGallery3}
             alt='FamilyGallery3'
-            className='w-full h-50 object-cover rounded-lg'
+            className='w-full h-45 sm:h-50 object-cover rounded-lg'
           />
           <img
+            loading='lazy'
             src={FamilyGallery4}
             alt='FamilyGallery4'
-            className='w-full h-50 object-cover rounded-lg'
+            className='w-full h-45 sm:h-50 object-cover rounded-lg'
           />
           <img
+            loading='lazy'
             src={FamilyGallery5}
             alt='FamilyGallery5'
-            className='w-full h-50 object-cover rounded-lg'
+            className='w-full h-45 sm:h-50 object-cover rounded-lg'
           />
           <img
+            loading='lazy'
             src={FamilyGallery6}
             alt='FamilyGallery6'
-            className='w-full h-50 object-cover rounded-lg'
+            className='w-full h-45 sm:h-50 object-cover rounded-lg'
           />
         </div>
       </div>

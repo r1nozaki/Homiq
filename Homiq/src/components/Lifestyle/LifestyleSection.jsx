@@ -50,15 +50,17 @@ const LifestyleSection = () => {
   ) : null;
 
   return (
-    <section className='min-h-screen w-full py-16 px-6 text-center'>
-      <h1 className='text-6xl text-green-500 mb-4 font-bold'>Lifestyle</h1>
-      <p className='text-2xl font-medium mb-8'>
+    <section className='min-h-screen w-full py-16 px-4 text-center'>
+      <h1 className='text-4xl sm:text-5xl md:text-6xl text-green-500 mb-4 font-bold'>
+        Lifestyle
+      </h1>
+      <p className='text-lg sm:text-xl md:text-2xl font-medium mb-8'>
         Where lifestyle is more than just a home
       </p>
-      <div className='w-full flex items-center justify-center gap-10'>
+      <div className='flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-10'>
         <button
           onClick={handleFamily}
-          className={`border border-green-400 w-50 h-10 rounded-2xl shadow-md hover:bg-green-400 hover:text-white hover:cursor-pointer  ${
+          className={`border border-green-400 px-6 py-2 rounded-2xl shadow-md text-sm sm:text-base hover:bg-green-400 hover:text-white ${
             familyFilter ? 'bg-green-400 text-white' : ''
           }`}
         >
@@ -66,7 +68,7 @@ const LifestyleSection = () => {
         </button>
         <button
           onClick={handleYoung}
-          className={`border border-green-400 w-50 h-10 rounded-2xl shadow-md hover:bg-green-400 hover:text-white hover:cursor-pointer  ${
+          className={`border border-green-400 px-6 py-2 rounded-2xl shadow-md text-sm sm:text-base hover:bg-green-400 hover:text-white ${
             youngFilter ? 'bg-green-400 text-white' : ''
           }`}
         >
@@ -74,14 +76,14 @@ const LifestyleSection = () => {
         </button>
         <button
           onClick={handleTranquility}
-          className={`border border-green-400 w-50 h-10 rounded-2xl shadow-md hover:bg-green-400 hover:text-white hover:cursor-pointer  ${
+          className={`border border-green-400 px-6 py-2 rounded-2xl shadow-md text-sm sm:text-base hover:bg-green-400 hover:text-white ${
             tranquilityFilter ? 'bg-green-400 text-white' : ''
           }`}
         >
           For Tranquility
         </button>
       </div>
-      <div className='flex  justify-center'>{view}</div>
+      <div className='flex justify-center'>{view}</div>
     </section>
   );
 };
