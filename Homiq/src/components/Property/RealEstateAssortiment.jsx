@@ -100,7 +100,7 @@ const RealEstateAssortiment = () => {
       <div
         className={`relative ${
           darkMode ? 'bg-gray-900' : 'bg-gradient-to-b from-[#E8F5E9] to-[#F5FFF5]'
-        }  w-full md:flex md:gap-3 md:pl-0 pl-10`}
+        }  w-full md:flex md:gap-3 md:pl-0 pl-5`}
       >
         {openFilter && (
           <div
