@@ -46,7 +46,10 @@ const Filters = ({ type, filters, onChange, onApply, onClear, openFilter }) => {
           <h2 className='font-semibold text-green-500 text-2xl mb-4'>Filters</h2>
           {openFilter ? (
             <button className='absolute top-1 right-1'>
-              <IoIosClose />
+              <IoIosClose
+                className={`${darkMode ? 'text-white' : 'text-black'}`}
+                size={35}
+              />
             </button>
           ) : null}
           <div className='space-y-4'>

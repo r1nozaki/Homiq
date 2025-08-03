@@ -55,10 +55,10 @@ const RealEstateAssortiment = () => {
   }, [type, filters]);
 
   const showContent = loading ? (
-    <HashLoader className='block mx-auto my-20' color='#4CAF50' />
+    <HashLoader className='block mx-auto py-20' color='#4CAF50' />
   ) : type === null ? (
     <div
-      className={`text-center font-bold text-4xl md:text-7xl mx-auto my-20 w-1/2 ${
+      className={`text-center font-bold text-4xl md:text-7xl mx-auto py-20 w-1/2 ${
         darkMode ? 'text-white' : 'text-[#1e3a1e]'
       }`}
     >
@@ -66,7 +66,7 @@ const RealEstateAssortiment = () => {
     </div>
   ) : filteredData.length === 0 ? (
     <div
-      className={`text-center font-bold text-2xl md:text-4xl mx-auto my-20 ${
+      className={`text-center font-bold text-2xl md:text-4xl mx-auto py-20 ${
         darkMode ? 'text-white' : 'text-[#1e3a1e]'
       }`}
     >
