@@ -21,7 +21,7 @@ import ErrorMessage from '../ErrorMessage';
 import Notification from '../Notification';
 import SaleData from '../../data/SaleRealEstateData';
 import RentData from '../../data/RentRealEstateData';
-import Bankid from '../../assets/bankid.png';
+import Bankid from '../../assets/Bankid.png';
 
 const EstateDetails = () => {
   const { id, type } = useParams();
