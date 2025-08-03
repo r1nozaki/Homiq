@@ -113,7 +113,7 @@ const AuthForm = ({
         {({ values, errors, touched, isSubmitting }) => (
           <Form className='flex flex-col'>
             <div className='flex items-center gap-3'>
-              <FaUser />
+              <FaUser className='text-black' />
               <div
                 className={`flex items-center gap-2 border-2 border-blue-700 rounded-lg px-4 py-2 w-full   ${
                   errors.userEmail && touched.userEmail ? ' border-red-500' : ''
@@ -135,7 +135,7 @@ const AuthForm = ({
             />
 
             <div className='flex items-center gap-3 mt-3'>
-              <FaLock />
+              <FaLock className='text-black' />
               <div
                 className={`flex items-center gap-2 border-2 border-blue-700 relative rounded-lg  px-4 py-2  w-full  ${
                   errors.userPassword && touched.userPassword ? ' border-red-500' : ''
@@ -153,7 +153,11 @@ const AuthForm = ({
                   onClick={togglePasswordVisibility}
                   className='absolute right-3 cursor-pointer'
                 >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  {showPassword ? (
+                    <FaEyeSlash className='text-black' />
+                  ) : (
+                    <FaEye className='text-black' />
+                  )}
                 </button>
               </div>
             </div>
@@ -179,7 +183,7 @@ const AuthForm = ({
               <FaUserPlus className='mr-2' /> Register
             </button>
 
-            <div className='flex items-center pt-8 mt-7'>
+            <div className='flex items-center pt-8 mt-3'>
               <hr className='flex-grow border-t border-gray-300' />
               <span className='mx-2 text-gray-600'>OR</span>
               <hr className='flex-grow border-t border-gray-300' />

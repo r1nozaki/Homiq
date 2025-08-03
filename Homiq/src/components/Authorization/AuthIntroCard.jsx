@@ -7,7 +7,7 @@ const AuthIntroCard = () => {
       <h2 className='font-bold text-4xl text-center mb-4 text-blue-700'>
         Ready to Find Your New Home?
       </h2>
-      <p className='text-xl text-center mb-6 pt-6 leading-relaxed'>
+      <p className='text-xl text-center mb-6 pt-6 leading-relaxed text-black'>
         Looking to rent or buy property? Homiq makes it easy to discover your perfect
         space — from cozy apartments to spacious family houses. Fast, secure, and
         stress-free. Join thousands of happy clients who’ve already found their dream
