@@ -81,7 +81,7 @@ const YoungLayout = () => {
             loading='lazy'
             src={YoungGallery5}
             alt='YoungGallery5'
-            className='w-full h-45 sm:h-50object-cover rounded-lg'
+            className='w-full h-45 sm:h-50 object-cover rounded-lg'
           />
           <img
             loading='lazy'
