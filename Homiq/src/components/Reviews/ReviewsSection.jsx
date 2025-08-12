@@ -56,7 +56,7 @@ const ReviewsSections = () => {
             className='fixed inset-0 bg-black/40 backdrop-blur-sm z-40 pointer-events-auto'
             onClick={() => setOpenModal(false)}
           />
-          <div className='fixed inset-0 flex md:items-center justify-center z-50 p-4 md:mt-18'>
+          <div className='fixed inset-0 flex md:items-center justify-center z-50 p-4'>
             <ReviewAddForm setOpenModal={setOpenModal} addReview={addReview} />
           </div>
         </>

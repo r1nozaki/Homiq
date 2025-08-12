@@ -60,7 +60,7 @@ const LifestyleSection = () => {
       <div className='flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-10'>
         <button
           onClick={handleFamily}
-          className={`border border-green-400 px-6 py-2 rounded-2xl shadow-md text-sm sm:text-base hover:bg-green-400 hover:text-white ${
+          className={`border border-green-400 px-6 py-2 rounded-2xl shadow-md text-sm sm:text-base hover:bg-green-400 hover:text-white hover:cursor-pointer ${
             familyFilter ? 'bg-green-400 text-white' : ''
           }`}
         >
@@ -68,7 +68,7 @@ const LifestyleSection = () => {
         </button>
         <button
           onClick={handleYoung}
-          className={`border border-green-400 px-6 py-2 rounded-2xl shadow-md text-sm sm:text-base hover:bg-green-400 hover:text-white ${
+          className={`border border-green-400 px-6 py-2 rounded-2xl shadow-md text-sm sm:text-base hover:bg-green-400 hover:text-white hover:cursor-pointer ${
             youngFilter ? 'bg-green-400 text-white' : ''
           }`}
         >
@@ -76,7 +76,7 @@ const LifestyleSection = () => {
         </button>
         <button
           onClick={handleTranquility}
-          className={`border border-green-400 px-6 py-2 rounded-2xl shadow-md text-sm sm:text-base hover:bg-green-400 hover:text-white ${
+          className={`border border-green-400 px-6 py-2 rounded-2xl shadow-md text-sm sm:text-base hover:bg-green-400 hover:text-white hover:cursor-pointer ${
             tranquilityFilter ? 'bg-green-400 text-white' : ''
           }`}
         >

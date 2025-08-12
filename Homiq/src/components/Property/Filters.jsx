@@ -7,6 +7,7 @@ const roomOptions = ['1', '2', '3', '4+'];
 const Filters = ({
   type,
   filters,
+  loading,
   onChange,
   onApply,
   onClear,
@@ -15,7 +16,7 @@ const Filters = ({
 }) => {
   const isDesktop = useIsDesktop();
   const { darkMode } = useTheme();
-  if (!type) return null;
+  if (!type || loading) return null;
 
   const handleChange = (field, value) => {
     onChange(prev => ({

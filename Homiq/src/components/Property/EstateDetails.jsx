@@ -85,7 +85,7 @@ const EstateDetails = () => {
     <>
       <Title>{address}</Title>
       <Meta name='description' content='Page about the selected real estate' />
-      <section className='mx-5 md:mx-10 px-2 md:px-6 flex flex-col md:flex-row gap-5 relative'>
+      <section className='mx-5 md:mx-10 px-2 md:px-6 flex flex-col md:flex-row gap-5 relative justify-center'>
         <div className=' w-full gap-5 my-10 md:max-w-248'>
           <div className='w-full md:w-248'>
             <ImageSlider images={images} />

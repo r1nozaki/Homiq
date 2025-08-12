@@ -136,7 +136,7 @@ const ReviewAddForm = ({ setOpenModal, addReview }) => {
                   as='select'
                   name='stars'
                   className={`w-full mb-4 mt-1 p-2 rounded-lg border border-green-300 placeholder-green-400 focus:outline-none focus:ring-1 focus:ring-green-400 ${
-                    darkMode ? 'text-white' : 'text-black'
+                    darkMode ? 'text-white bg-gray-900' : 'text-black'
                   } ${touched.name && errors.name ? 'border-red-500' : 'border-black'}`}
                 >
                   <option value='star-0'>0</option>

@@ -64,14 +64,16 @@ const Footer = ({ setIsFooterVisible }) => {
         darkMode ? 'bg-gray-800' : 'bg-[#F5F5F5]'
       }`}
     >
-      <div className='flex flex-col md:flex-row md:gap-53.5 gap-20 justify-center items-center md:justify-start md:items-start '>
+      <div className='flex flex-col md:flex-row md:gap-53.5 gap-20 justify-center items-center md:justify-between md:items-start '>
         <div className='w-88 text-center md:text-left'>
           <Link to='/home' className='uppercase text-green-500 font-medium text-2xl '>
             Homiq
           </Link>
-          <p className={`w-80 mt-4 transition-colors duration-300 ${
-            darkMode ? 'text-gray-300' : 'text-[#1F2744]'
-          }`}>
+          <p
+            className={`w-80 mt-4 transition-colors duration-300 ${
+              darkMode ? 'text-gray-300' : 'text-[#1F2744]'
+            }`}
+          >
             We have built our reputation as true local area experts.
           </p>
           <Formik
@@ -133,13 +135,19 @@ const Footer = ({ setIsFooterVisible }) => {
 
         <div className='flex flex-col gap-10 md:flex-row md:gap-30'>
           <div>
-            <span className={`text-xl font-medium transition-colors duration-300 ${
-              darkMode ? 'text-white' : 'text-[#0B2E29]'
-            }`}>Service</span>
+            <span
+              className={`text-xl font-medium transition-colors duration-300 ${
+                darkMode ? 'text-white' : 'text-[#0B2E29]'
+              }`}
+            >
+              Service
+            </span>
             <ul className='mt-4'>
-              <li className={`flex flex-col gap-4 transition-colors duration-300 ${
-                darkMode ? 'text-gray-400' : 'text-gray-500'
-              }`}>
+              <li
+                className={`flex flex-col gap-4 transition-colors duration-300 ${
+                  darkMode ? 'text-gray-400' : 'text-gray-500'
+                }`}
+              >
                 <Link to='/about' className='hover:underline'>
                   About us
                 </Link>
@@ -157,13 +165,19 @@ const Footer = ({ setIsFooterVisible }) => {
           </div>
 
           <div>
-            <span className={`text-xl font-medium transition-colors duration-300 ${
-              darkMode ? 'text-white' : 'text-[#0B2E29]'
-            }`}>Community</span>
+            <span
+              className={`text-xl font-medium transition-colors duration-300 ${
+                darkMode ? 'text-white' : 'text-[#0B2E29]'
+              }`}
+            >
+              Community
+            </span>
             <ul className='mt-4'>
-              <li className={`flex flex-col gap-4 transition-colors duration-300 ${
-                darkMode ? 'text-gray-400' : 'text-gray-500'
-              }`}>
+              <li
+                className={`flex flex-col gap-4 transition-colors duration-300 ${
+                  darkMode ? 'text-gray-400' : 'text-gray-500'
+                }`}
+              >
                 <Link to='/lifestyle' className='hover:underline'>
                   Lifestyle
                 </Link>
@@ -175,13 +189,19 @@ const Footer = ({ setIsFooterVisible }) => {
           </div>
 
           <div className='md:ml-10'>
-            <span className={`text-xl font-medium transition-colors duration-300 ${
-              darkMode ? 'text-white' : 'text-[#0B2E29]'
-            }`}>Follow us on</span>
+            <span
+              className={`text-xl font-medium transition-colors duration-300 ${
+                darkMode ? 'text-white' : 'text-[#0B2E29]'
+              }`}
+            >
+              Follow us on
+            </span>
             <ul className='mt-4 '>
-              <li className={`flex gap-4 transition-colors duration-300 ${
-                darkMode ? 'text-gray-400' : 'text-gray-500'
-              }`}>
+              <li
+                className={`flex gap-4 transition-colors duration-300 ${
+                  darkMode ? 'text-gray-400' : 'text-gray-500'
+                }`}
+              >
                 <a
                   href='https://web.telegram.org/k/#@r1nozakio'
                   className={`w-10 h-10 flex items-center justify-center rounded-full transition duration-300 ease-in-out transform hover:scale-110 hover:text-green-600 hover:outline ${
@@ -189,7 +209,9 @@ const Footer = ({ setIsFooterVisible }) => {
                   }`}
                   target='blank'
                 >
-                  <FaTelegram className={darkMode ? 'text-green-400' : 'text-green-500'} />
+                  <FaTelegram
+                    className={darkMode ? 'text-green-400' : 'text-green-500'}
+                  />
                 </a>
                 <a
                   href='https://www.instagram.com/_r1nozaki/?hl=ru'
@@ -198,7 +220,9 @@ const Footer = ({ setIsFooterVisible }) => {
                   }`}
                   target='blank'
                 >
-                  <FaInstagramSquare className={darkMode ? 'text-green-400' : 'text-green-500'} />
+                  <FaInstagramSquare
+                    className={darkMode ? 'text-green-400' : 'text-green-500'}
+                  />
                 </a>
                 <a
                   href='https://x.com/r1nozaki'
@@ -207,7 +231,9 @@ const Footer = ({ setIsFooterVisible }) => {
                   }`}
                   target='blank'
                 >
-                  <FaSquareXTwitter className={darkMode ? 'text-green-400' : 'text-green-500'} />
+                  <FaSquareXTwitter
+                    className={darkMode ? 'text-green-400' : 'text-green-500'}
+                  />
                 </a>
               </li>
             </ul>

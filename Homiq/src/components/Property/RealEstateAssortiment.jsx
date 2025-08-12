@@ -120,6 +120,7 @@ const RealEstateAssortiment = () => {
         <Filters
           type={type}
           filters={draftFilters}
+          loading={loading}
           openFilter={openFilter}
           setOpenFilter={setOpenFilter}
           onChange={setDraftFilters}
